@@ -44,6 +44,9 @@ GMU GDSC/regulators:
 			"gmu_clk", "ahb_clk", "cxo_clk", "axi_clk", "memnoc_clk",
 			"rbcpr_clk"
 
+- qcom,gmu-freq-table: List of frequencies the GMU clock can run at with their corresponding
+			voltage levels.
+
 - List of sub nodes, one for each of the translation context banks needed
 		for GMU to access system memory in different operating mode. Currently
 		supported names are:
@@ -91,6 +94,9 @@ gmu: qcom,gmu@2c6a000 {
 
 	clock-names = "gmu_clk", "ahb_clk", "cxo_clk",
 				"axi_clk", "memnoc_clk", "rbcpr_clk";
+
+	qcom,gmu-freq-table = <200000000 RPMH_REGULATOR_LEVEL_LOW_SVS>,
+	                        <500000000 RPMH_REGULATOR_LEVEL_SVS>;
 
 	gmu_user: gmu_user {
 	      compatible = "qcom,smmu-gmu-user-cb";
