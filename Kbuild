@@ -1,5 +1,11 @@
+ifeq ($(CONFIG_ARCH_WAIPIO), y)
 dtbo-y += gpu/waipio-gpu.dtbo \
 		gpu/waipio-v2-gpu.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_KALAMA), y)
+dtbo-y += gpu/kalama-gpu.dtbo
+endif
 
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
