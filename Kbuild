@@ -1,3 +1,7 @@
+ifeq ($(CONFIG_ARCH_KALAMA),y)
+dtbo-y += kalama-bt.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_WAIPIO),y)
 dtbo-y += waipio-bt.dtbo
 dtbo-y += waipio-kiwi-bt.dtbo
