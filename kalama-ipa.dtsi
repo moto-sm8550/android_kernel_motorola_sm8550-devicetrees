@@ -33,7 +33,7 @@
                         <0 654 IRQ_TYPE_LEVEL_HIGH>,
                         <0 432 IRQ_TYPE_LEVEL_HIGH>;
                 interrupt-names = "ipa-irq", "gsi-irq";
-                qcom,ipa-hw-ver = <23>; /* IPA core version = IPAv5.5 */
+                qcom,ipa-hw-ver = <24>; /* IPA core version = IPAv5.5 */
                 qcom,ipa-hw-mode = <0>;
                 qcom,platform-type = <1>; /* MSM platform */
                 qcom,ee = <0>;
