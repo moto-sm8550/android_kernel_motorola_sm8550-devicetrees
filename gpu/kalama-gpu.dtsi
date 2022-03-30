@@ -22,6 +22,8 @@
 
 	qcom,gpu-model = "Adreno740";
 
+	qcom,chipid = <0x43050a00>;
+
 	qcom,initial-pwrlevel = <5>;
 
 	qcom,no-nap;
