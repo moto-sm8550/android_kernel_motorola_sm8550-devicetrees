@@ -7,6 +7,10 @@ ifeq ($(CONFIG_ARCH_KALAMA), y)
 dtbo-y += gpu/kalama-gpu.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_SA8155), y)
+dtbo-y += gpu/sa8155-v2-gpu.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
