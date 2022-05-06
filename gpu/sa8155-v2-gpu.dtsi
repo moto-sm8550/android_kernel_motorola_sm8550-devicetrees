@@ -2,11 +2,25 @@
 
 /* GPU power level overrides */
 &msm_gpu {
-	/*
-	 * For auto chipsets, qcom,gpu-speed-bin gives the feature id number
-	 * which would be  matched against value of "qcom,speed-bin" to pick
-	 * the corresponding speedbin number for a SKU.
-	 */
+	/* Updated chip ID */
+	qcom,chipid = <0x06040001>;
+
+	/* Power level to start throttling */
+	qcom,throttle-pwrlevel = <0>;
+
+	qcom,bus-table-ddr =
+		<MHZ_TO_KBPS(0, 4)>,    /* index=0  */
+		<MHZ_TO_KBPS(200, 4)>,  /* index=1  */
+		<MHZ_TO_KBPS(300, 4)>,  /* index=2  */
+		<MHZ_TO_KBPS(451, 4)>,  /* index=3  */
+		<MHZ_TO_KBPS(547, 4)>,  /* index=4  */
+		<MHZ_TO_KBPS(681, 4)>,  /* index=5  */
+		<MHZ_TO_KBPS(768, 4)>, /* index=6  */
+		<MHZ_TO_KBPS(1017, 4)>, /* index=7  */
+		<MHZ_TO_KBPS(1353, 4)>, /* index=8  */
+		<MHZ_TO_KBPS(1555, 4)>, /* index=9  */
+		<MHZ_TO_KBPS(1804, 4)>, /* index=10  */
+		<MHZ_TO_KBPS(2092, 4)>; /* index=11  */
 
 	/delete-property/qcom,initial-pwrlevel;
 	/delete-node/qcom,gpu-pwrlevels;
