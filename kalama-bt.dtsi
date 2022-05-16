@@ -43,12 +43,12 @@
 			qcom,bt-vdd-rfa1-config   = <1350000 1350000 0 1>;
 			qcom,bt-vdd-rfa2-config   = <1900000 1900000 0 1>;
 			qcom,pdc_init_table=
-				"{class: wlan_pdc, ss: rf, res: s4e.v, upval: 966}",
-				"{class: wlan_pdc, ss: rf, res: s4e.v, dwnval: 615}",
-				"{class: wlan_pdc, ss: rf, res: s4g.v, upval: 1350}",
-				"{class: wlan_pdc, ss: rf, res: s4g.v, dwnval: 945}",
-				"{class: wlan_pdc, ss: rf, res: s6g.v, upval: 1900}",
-				"{class: wlan_pdc, ss: rf, res: s6g.v, dwnval: 1825}";
+				"{class: wlan_pdc, ss: rf, res: s4e.v, upval: 916}",
+				"{class: wlan_pdc, ss: rf, res: s4e.v, dwnval: 612}",
+				"{class: wlan_pdc, ss: rf, res: s4g.v, upval: 1316}",
+				"{class: wlan_pdc, ss: rf, res: s4g.v, dwnval: 944}",
+				"{class: wlan_pdc, ss: rf, res: s6g.v, upval: 1864}",
+				"{class: wlan_pdc, ss: rf, res: s6g.v, dwnval: 1820}";
 		};
 		bt_qca6490 {
 			compatible = "qcom,qca6490";
