@@ -80,6 +80,7 @@
 		qcom,wlan-rc-num = <0>;
 		qcom,bus-type=<0>;
 		qcom,notify-modem-status;
+		qcom,wlan-cbc-enabled;
 
 		reg = <0xb0000000 0x10000>;
 		reg-names = "smmu_iova_ipa";
