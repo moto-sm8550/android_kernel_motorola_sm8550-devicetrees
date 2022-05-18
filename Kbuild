@@ -4,7 +4,8 @@ dtbo-y += gpu/waipio-gpu.dtbo \
 endif
 
 ifeq ($(CONFIG_ARCH_KALAMA), y)
-dtbo-y += gpu/kalama-gpu.dtbo
+dtbo-y += gpu/kalama-gpu.dtbo \
+		gpu/kalama-v2-gpu.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SA8155), y)
