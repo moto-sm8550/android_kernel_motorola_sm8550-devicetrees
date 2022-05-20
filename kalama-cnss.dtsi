@@ -221,6 +221,17 @@
 				"s2g", "bb",
 				"s5g", "bb";
 
+			qcom,pmu_vreg_map =
+				"VDD095_MX_PMU", "s2g",
+				"VDD095_PMU", "s5g",
+				"VDD_PMU_AON_I", "s4e",
+				"VDD095_PMU_BT", "s4e",
+				"VDD09_PMU_RFA_I", "s4e",
+				"VDD13_PMU_PCIE_I", "s4g",
+				"VDD13_PMU_RFA_I", "s4g",
+				"VDD19_PMU_PCIE_I", "s6g",
+				"VDD19_PMU_RFA_I", "s6g";
+
 			qcom,pdc_init_table =
 			"{class: wlan_pdc, ss: rf, res: s4e.v, upval: 916}",
 			"{class: wlan_pdc, ss: rf, res: s4e.v, dwnval: 612}",
