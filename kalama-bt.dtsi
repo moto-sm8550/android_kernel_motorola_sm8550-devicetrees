@@ -32,7 +32,7 @@
 			qcom,bt-vdd18-aon-supply  = <&L15B>; /* BT VDD1.8 AON */
 			qcom,bt-vdd-dig-supply    = <&S4E>; /* BT LDO*/
 			qcom,bt-vdd-aon-supply    = <&S4E>; /* BT AON LDO*/
-			qcom,bt-vdd-rfaOp8_supply = <&S4E>; /* BT RFAOp8 CMN LDO*/
+			qcom,bt-vdd-rfaOp8-supply = <&S4E>; /* BT RFAOp8 CMN LDO*/
 			qcom,bt-vdd-rfa1-supply   = <&S4G>;   /* BT RFA1.2 LDO */
 			qcom,bt-vdd-rfa2-supply   = <&S6G>; /* BT RFA1.8 LDO */
 
@@ -58,14 +58,14 @@
 			qcom,wl-reset-gpio = <&tlmm 80 0>; /* WL_EN */
 			qcom,bt-sw-ctrl-gpio = <&tlmm 82 0>; /* SW_CTRL */
 			mboxes = <&qmp_aop 0>;
-			qcom,bt-vdd18-aon-supply  = <&L15B>; /* BT VDD1.8 AON */
+			qcom,bt-vdd-io-supply  = <&L15B>; /* BT VDD1.8 AON */
 			qcom,bt-vdd-aon-supply = <&S4E>;
 			qcom,bt-vdd-dig-supply = <&S4E>;
-			qcom,bt-vdd-rfaOp8_supply = <&S4E>; /* BT RFAOp8 CMN LDO*/
+			qcom,bt-vdd-rfaOp8-supply = <&S4E>; /* BT RFAOp8 CMN LDO*/
 			qcom,bt-vdd-rfa1-supply = <&S6G>;
 			qcom,bt-vdd-rfa2-supply = <&S4G>;
 
-			qcom,bt-vdd18-aon-config  = <1800000 1800000 0 1>;
+			qcom,bt-vdd-io-config  = <1800000 1800000 0 1>;
 			qcom,bt-vdd-aon-config = <966000 966000 0 1>;
 			qcom,bt-vdd-dig-config = <966000 966000 0 1>;
 			qcom,bt-vdd-rfaOp8-config = <966000 966000 0 1>;
