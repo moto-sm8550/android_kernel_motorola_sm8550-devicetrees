@@ -37,6 +37,7 @@
                 qcom,ipa-hw-mode = <0>;
                 qcom,platform-type = <1>; /* MSM platform */
                 qcom,ee = <0>;
+		qcom,entire-ipa-block-size = <0x200000>;
                 qcom,use-ipa-tethering-bridge;
                 qcom,mhi-event-ring-id-limits = <9 11>; /* start and end */
                 qcom,modem-cfg-emb-pipe-flt;
@@ -48,6 +49,9 @@
                 qcom,lan-rx-napi;
                 qcom,tx-napi;
                 qcom,tx-poll;
+		qcom,register-collection-on-crash;
+		qcom,testbus-collection-on-crash;
+		qcom,non-tn-collection-on-crash;
                 qcom,wan-use-skb-page;
                 qcom,rmnet-ctl-enable;
                 qcom,rmnet-ll-enable;
