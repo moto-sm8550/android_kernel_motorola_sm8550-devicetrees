@@ -7,6 +7,10 @@ ifeq ($(CONFIG_ARCH_KALAMA),y)
 dtbo-y += kalama-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_KHAJE),y)
+dtbo-y += khaje-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SA8155),y)
 dtbo-y += sa8155p-cnss.dtbo
 endif
