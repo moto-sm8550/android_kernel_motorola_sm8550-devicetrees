@@ -36,7 +36,8 @@
 
 	qcom,gpu-qdss-stm = <0x161c0000 0x40000>; /* base addr, size */
 
-	qcom,tzone-names = "gpuss-0", "gpuss-1";
+	qcom,tzone-names = "gpuss-0", "gpuss-1", "gpuss-2", "gpuss-3",
+			"gpuss-4", "gpuss-5", "gpuss-6", "gpuss-7";
 
 	interconnects = <&gem_noc MASTER_GFX3D &mc_virt SLAVE_EBI1>;
 	interconnect-names = "gpu_icc_path";
@@ -47,16 +48,15 @@
 
 	qcom,bus-table-ddr =
 		<MHZ_TO_KBPS(0, 4)>,    /* index=0 */
-		<MHZ_TO_KBPS(451, 4) >, /* index=1 */
-		<MHZ_TO_KBPS(547, 4) >, /* index=2 */
-		<MHZ_TO_KBPS(768, 4) >, /* index=3 */
-		<MHZ_TO_KBPS(1555, 4)>, /* index=4 */
-		<MHZ_TO_KBPS(1708, 4)>, /* index=5 */
-		<MHZ_TO_KBPS(2092, 4)>, /* index=6 */
-		<MHZ_TO_KBPS(2736, 4)>, /* index=7 */
-		<MHZ_TO_KBPS(3196, 4)>, /* index=8 */
-		<MHZ_TO_KBPS(3744, 4)>, /* index=9 */
-		<MHZ_TO_KBPS(4262, 4)>; /* index=10 */
+		<MHZ_TO_KBPS(547, 4) >, /* index=1 */
+		<MHZ_TO_KBPS(768, 4) >, /* index=2 */
+		<MHZ_TO_KBPS(1555, 4)>, /* index=3 */
+		<MHZ_TO_KBPS(1708, 4)>, /* index=4 */
+		<MHZ_TO_KBPS(2092, 4)>, /* index=5 */
+		<MHZ_TO_KBPS(2736, 4)>, /* index=6 */
+		<MHZ_TO_KBPS(3187, 4)>, /* index=7 */
+		<MHZ_TO_KBPS(3686, 4)>, /* index=8 */
+		<MHZ_TO_KBPS(4224, 4)>; /* index=9 */
 
 	zap-shader {
 		memory-region = <&gpu_micro_code_mem>;
@@ -71,69 +71,65 @@
 
 		qcom,gpu-pwrlevel@0 {
 			reg = <0>;
-			qcom,gpu-freq = <746000000>;
-			qcom,level = <RPMH_REGULATOR_LEVEL_NOM>;
-
-			qcom,bus-freq = <10>;
-			qcom,bus-min = <7>;
-			qcom,bus-max = <10>;
-
-			qcom,acd-level = <0xc02d5ffd>;
-		};
-		qcom,gpu-pwrlevel@1 {
-			reg = <1>;
-			qcom,gpu-freq = <719000000>;
-			qcom,level = <RPMH_REGULATOR_LEVEL_SVS_L2>;
-
-			qcom,bus-freq = <8>;
-			qcom,bus-min = <4>;
-			qcom,bus-max = <8>;
-
-			qcom,acd-level = <0xc02d5ffd>;
-		};
-		qcom,gpu-pwrlevel@2 {
-			reg = <2>;
-			qcom,gpu-freq = <680000000>;
-			qcom,level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
-
-			qcom,bus-freq = <8>;
-			qcom,bus-min = <4>;
-			qcom,bus-max = <8>;
-
-			qcom,acd-level = <0xc02e5ffd>;
-		};
-		qcom,gpu-pwrlevel@3 {
-			reg = <3>;
 			qcom,gpu-freq = <550000000>;
 			qcom,level = <RPMH_REGULATOR_LEVEL_SVS>;
 
-			qcom,bus-freq = <8>;
-			qcom,bus-min = <4>;
-			qcom,bus-max = <8>;
+			qcom,bus-freq = <9>;
+			qcom,bus-min = <6>;
+			qcom,bus-max = <9>;
 
-			qcom,acd-level = <0xc02f5ffd>;
+			qcom,acd-level = <0xa82d5ffd>;
 		};
-		qcom,gpu-pwrlevel@4 {
-			reg = <4>;
+		qcom,gpu-pwrlevel@1 {
+			reg = <1>;
+			qcom,gpu-freq = <475000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_SVS>;
+
+			qcom,bus-freq = <7>;
+			qcom,bus-min = <3>;
+			qcom,bus-max = <9>;
+
+			qcom,acd-level = <0xa82d5ffd>;
+		};
+		qcom,gpu-pwrlevel@2 {
+			reg = <2>;
 			qcom,gpu-freq = <401000000>;
 			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
 
-			qcom,bus-freq = <6>;
-			qcom,bus-min = <3>;
-			qcom,bus-max = <8>;
+			qcom,bus-freq = <5>;
+			qcom,bus-min = <2>;
+			qcom,bus-max = <7>;
 
-			qcom,acd-level = <0xc82c5ffd>;
+			qcom,acd-level = <0x882e5ffd>;
 		};
-		qcom,gpu-pwrlevel@5 {
-			reg = <5>;
+		qcom,gpu-pwrlevel@3 {
+			reg = <3>;
+			qcom,gpu-freq = <348000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
+
+			qcom,bus-freq = <4>;
+			qcom,bus-min = <2>;
+			qcom,bus-max = <7>;
+		};
+		qcom,gpu-pwrlevel@4 {
+			reg = <4>;
 			qcom,gpu-freq = <295000000>;
 			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
 
 			qcom,bus-freq = <1>;
 			qcom,bus-min = <1>;
-			qcom,bus-max = <4>;
+			qcom,bus-max = <3>;
 
-			qcom,acd-level = <0xc82f5ffd>;
+			qcom,acd-level = <0xc02c5ffd>;
+		};
+		qcom,gpu-pwrlevel@5 {
+			reg = <5>;
+			qcom,gpu-freq = <220000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+
+			qcom,bus-freq = <1>;
+			qcom,bus-min = <1>;
+			qcom,bus-max = <3>;
 		};
 	};
 
@@ -243,5 +239,60 @@
 
 		mboxes = <&qmp_aop 0>;
 		mbox-names = "aop";
+	};
+
+	coresight_cx_dgbc: qcom,gpu-coresight-cx {
+		compatible = "qcom,gpu-coresight-cx";
+
+		coresight-name = "coresight-gfx-cx";
+		coresight-atid = <52>;
+
+		out-ports {
+			port {
+				cx_dbgc_out_funnel_gfx: endpoint {
+					remote-endpoint =
+					  <&funnel_gfx_in_cx_dbgc>;
+				};
+			};
+		};
+	};
+
+	coresight_gx_dgbc: qcom,gpu-coresight-gx {
+		compatible = "qcom,gpu-coresight-gx";
+
+		coresight-name = "coresight-gfx";
+		coresight-atid = <53>;
+
+		out-ports {
+			port {
+				gx_dbgc_out_funnel_gfx: endpoint {
+					remote-endpoint =
+					  <&funnel_gfx_in_gx_dbgc>;
+				};
+			};
+		};
+	};
+};
+
+&funnel_gfx {
+	in-ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			funnel_gfx_in_gx_dbgc: endpoint {
+			remote-endpoint =
+				<&gx_dbgc_out_funnel_gfx>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			funnel_gfx_in_cx_dbgc: endpoint {
+			remote-endpoint =
+				<&cx_dbgc_out_funnel_gfx>;
+			};
+		};
 	};
 };
