@@ -11,7 +11,6 @@
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
 #include "kalama-gpu.dtsi"
-#include "kalama-gpu-pwrlevels.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Kalama";

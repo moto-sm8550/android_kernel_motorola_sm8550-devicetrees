@@ -1,49 +1,6 @@
 
 #define MHZ_TO_KBPS(mhz, w) ((mhz * 1000000 * w) / (1024))
 
-/* External feature codes */
-#define FC_UNKNOWN 0x0
-#define FC_AA 0x1
-#define FC_AB 0x2
-#define FC_AC 0x3
-#define FC_AD 0x4
-#define FC_AE 0x5
-#define FC_AF 0x6
-#define FC_AG 0x7
-#define FC_AH 0x8
-
-/* Internal feature codes */
-#define FC_Y0 0x00f1
-#define FC_Y1 0x00f2
-#define FC_Y2 0x00f3
-#define FC_Y3 0x00f4
-#define FC_Y4 0x00f5
-#define FC_Y5 0x00f6
-#define FC_Y6 0x00f7
-#define FC_Y7 0x00f8
-#define FC_Y8 0x00f9
-#define FC_Y9 0x00fa
-#define FC_YA 0x00fb
-#define FC_YB 0x00fc
-#define FC_YC 0x00fd
-#define FC_YD 0x00fe
-#define FC_YE 0x00ff
-#define FC_YF 0x0100
-
-/* Pcodes */
-#define PCODE_UNKNOWN 0
-#define PCODE_0 1
-#define PCODE_1 2
-#define PCODE_2 3
-#define PCODE_3 4
-#define PCODE_4 5
-#define PCODE_5 6
-#define PCODE_6 7
-#define PCODE_7 8
-#define PCODE_8 9
-
-#define SKU_CODE(pcode, featurecode) ((pcode << 16) + featurecode)
-
 &msm_gpu {
 	compatible = "qcom,adreno-gpu-gen7-2-0", "qcom,kgsl-3d0";
 	status = "ok";
@@ -68,6 +25,8 @@
 	qcom,gpu-model = "Adreno740";
 
 	qcom,chipid = <0x43050a00>;
+
+	qcom,initial-pwrlevel = <5>;
 
 	qcom,no-nap;
 
@@ -101,6 +60,77 @@
 
 	zap-shader {
 		memory-region = <&gpu_micro_code_mem>;
+	};
+
+	/* Power levels */
+	qcom,gpu-pwrlevels {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		compatible = "qcom,gpu-pwrlevels";
+
+		qcom,gpu-pwrlevel@0 {
+			reg = <0>;
+			qcom,gpu-freq = <550000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_SVS>;
+
+			qcom,bus-freq = <9>;
+			qcom,bus-min = <6>;
+			qcom,bus-max = <9>;
+
+			qcom,acd-level = <0xa82d5ffd>;
+		};
+		qcom,gpu-pwrlevel@1 {
+			reg = <1>;
+			qcom,gpu-freq = <475000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_SVS>;
+
+			qcom,bus-freq = <7>;
+			qcom,bus-min = <3>;
+			qcom,bus-max = <9>;
+
+			qcom,acd-level = <0xa82d5ffd>;
+		};
+		qcom,gpu-pwrlevel@2 {
+			reg = <2>;
+			qcom,gpu-freq = <401000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
+
+			qcom,bus-freq = <5>;
+			qcom,bus-min = <2>;
+			qcom,bus-max = <7>;
+
+			qcom,acd-level = <0x882e5ffd>;
+		};
+		qcom,gpu-pwrlevel@3 {
+			reg = <3>;
+			qcom,gpu-freq = <348000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
+
+			qcom,bus-freq = <4>;
+			qcom,bus-min = <2>;
+			qcom,bus-max = <7>;
+		};
+		qcom,gpu-pwrlevel@4 {
+			reg = <4>;
+			qcom,gpu-freq = <295000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+
+			qcom,bus-freq = <1>;
+			qcom,bus-min = <1>;
+			qcom,bus-max = <3>;
+
+			qcom,acd-level = <0xc02c5ffd>;
+		};
+		qcom,gpu-pwrlevel@5 {
+			reg = <5>;
+			qcom,gpu-freq = <220000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+
+			qcom,bus-freq = <1>;
+			qcom,bus-min = <1>;
+			qcom,bus-max = <3>;
+		};
 	};
 
 	qcom,gpu-mempools {
