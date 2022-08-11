@@ -12,6 +12,10 @@ ifeq ($(CONFIG_ARCH_SA8155), y)
 dtbo-y += gpu/sa8155-v2-gpu.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_KHAJE), y)
+dtbo-y += gpu/khaje-gpu.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
