@@ -5,7 +5,8 @@ endif
 
 ifeq ($(CONFIG_ARCH_KALAMA), y)
 dtbo-y += gpu/kalama-gpu.dtbo \
-		gpu/kalama-v2-gpu.dtbo
+		gpu/kalama-v2-gpu.dtbo \
+		gpu/kalamap-hhg-gpu.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SA8155), y)
