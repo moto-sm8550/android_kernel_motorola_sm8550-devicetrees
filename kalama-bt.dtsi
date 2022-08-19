@@ -77,7 +77,11 @@
 				"{class: wlan_pdc, ss: rf, res: s4g.v, upval: 1350}",
 				"{class: wlan_pdc, ss: rf, res: s4g.v, dwnval: 945}",
 				"{class: wlan_pdc, ss: rf, res: s6g.v, upval: 1900}",
-				"{class: wlan_pdc, ss: rf, res: s6g.v, dwnval: 1825}";
+				"{class: wlan_pdc, ss: rf, res: s6g.v, dwnval: 1825}",
+				"{class: wlan_pdc, ss: rf, res: s2g.m, enable: 1}",
+				"{class: wlan_pdc, ss: rf, res: s2g.v, enable: 1}",
+				"{class: wlan_pdc, ss: rf, res: s2g.v, upval: 1012}",
+				"{class: wlan_pdc, ss: rf, res: s2g.v, dwnval: 515}";
 		};
 	};
 	slim_msm: slim@6C40000 {
