@@ -13,7 +13,9 @@ dtbo-y += gpu/sa8155-v2-gpu.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_KHAJE), y)
-dtbo-y += gpu/khaje-gpu.dtbo
+dtbo-y += gpu/khaje-gpu.dtbo \
+		gpu/khajep-gpu.dtbo \
+		gpu/khajeq-gpu.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SA8195), y)
