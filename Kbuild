@@ -15,7 +15,8 @@ endif
 ifeq ($(CONFIG_ARCH_KHAJE), y)
 dtbo-y += gpu/khaje-gpu.dtbo \
 		gpu/khajep-gpu.dtbo \
-		gpu/khajeq-gpu.dtbo
+		gpu/khajeq-gpu.dtbo \
+		gpu/khajeg-gpu.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SA8195), y)
