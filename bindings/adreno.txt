@@ -202,7 +202,7 @@ Optional Properties:
 				baseAddr - base address of the gpu channels in the qdss stm memory region
 				size     - size of the gpu stm region
 
-- qcom,gpu-qtimer:
+- qcom,gpu-timer:
 				<baseAddr size>
 				baseAddr - base address of the qtimer memory region
 				size     - size of the qtimer region
@@ -257,6 +257,8 @@ Properties:
 - qcom,mempool-reserved:	Number of pages reserved at init time for a pool.
 - qcom,mempool-allocate:	Allocate memory from the system memory when the
 				reserved pool exhausted.
+- qcom,mempool-max-pages:	Limit on max pages this pool can hold, If not defined
+				there is no limit.
 GPU model configuration:
 - qcom,gpu-models:
 		Container of sets of GPU model names specified by qcom,gpu-models.

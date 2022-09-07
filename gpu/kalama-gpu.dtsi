@@ -209,6 +209,8 @@
 
 		mboxes = <&qmp_aop 0>;
 		mbox-names = "aop";
+
+		qcom,ipc-core = <0x00400000 0x100000>;
 	};
 
 	coresight_cx_dgbc: qcom,gpu-coresight-cx {

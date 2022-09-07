@@ -62,6 +62,11 @@ GMU GDSC/regulators:
 			where the msm iommu driver is used rather than the arm smmu
 			driver, this property may be absent.
 
+- qcom,ipc-core:	<baseAddr size>
+			baseAddr - base address of the IPC region
+			size     - size of the IPC region
+
+
 Example:
 
 gmu: qcom,gmu@2c6a000 {
