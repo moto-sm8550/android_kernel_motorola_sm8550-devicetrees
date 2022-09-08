@@ -15,6 +15,10 @@ ifeq ($(CONFIG_ARCH_SA8155),y)
 dtbo-y += sa8155p-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_SA8195),y)
+dtbo-y += sa8195p-cnss.dtbo
+endif
+
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
