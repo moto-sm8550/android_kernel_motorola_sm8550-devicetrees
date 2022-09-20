@@ -14,10 +14,10 @@
 #include "khaje-gpu.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Khaje SoC";
-	compatible = "qcom,khaje", "qcom,khaje-qrd",
-			"qcom,khaje-atp", "qcom,khaje-idp";
-	qcom,msm-id = <518 0x10000>;
+	model = "Qualcomm Technologies, Inc. Khajeg SoC";
+	compatible = "qcom,khajeg", "qcom,khajeg-qrd",
+			"qcom,khajeg-atp", "qcom,khajeg-idp";
+	qcom,msm-id = <585 0x10000>;
 	qcom,board-id = <0 0>;
 };
 
