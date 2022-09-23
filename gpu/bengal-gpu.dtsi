@@ -650,12 +650,6 @@
 		qcom,protect = <0xa0000 0x10000>;
 
 		vddcx-supply = <&gpu_cx_gdsc>;
-		clocks = <&gcc GCC_BIMC_GPU_AXI_CLK>,
-			<&gcc GCC_GPU_MEMNOC_GFX_CLK>,
-			<&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>;
-
-		clock-names = "mem_clk", "mem_iface_clk", "smmu_vote";
-
 		qcom,retention;
 		qcom,hyp_secure_alloc;
 
