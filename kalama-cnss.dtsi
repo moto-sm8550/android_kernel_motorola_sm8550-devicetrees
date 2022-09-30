@@ -62,6 +62,7 @@
 			qcom,wlan-rc-num = <1>;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 			qcom,wlan-cbc-enabled;
+			cnss-enable-self-recovery;
 			use-pm-domain;
 			mboxes = <&qmp_aop 0>;
 
@@ -150,6 +151,7 @@
 			qcom,wlan-rc-num = <0>;
 			qcom,wlan-ramdump-dynamic = <0x780000>;
 			qcom,wlan-cbc-enabled;
+			cnss-enable-self-recovery;
 			use-pm-domain;
 			mboxes = <&qmp_aop 0>;
 
