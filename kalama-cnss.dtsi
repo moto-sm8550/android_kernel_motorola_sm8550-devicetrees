@@ -60,6 +60,7 @@
 			pinctrl-1 = <&cnss_wlan_en_sleep>;
 			qcom,wlan;
 			qcom,wlan-rc-num = <1>;
+			qcom,rc-ep-short-channel;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 			qcom,wlan-cbc-enabled;
 			cnss-enable-self-recovery;
