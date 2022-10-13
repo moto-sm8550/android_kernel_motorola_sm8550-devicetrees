@@ -31,6 +31,10 @@ ifeq ($(CONFIG_ARCH_MONACO),y)
 dtbo-y += monaco-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_QTI_QUIN_GVM),y)
+dtbo-y += sa8155p-vm-cnss.dtbo
+endif
+
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
