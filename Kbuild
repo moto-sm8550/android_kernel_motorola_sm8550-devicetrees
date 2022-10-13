@@ -1,5 +1,6 @@
 ifeq ($(CONFIG_ARCH_KALAMA),y)
 dtbo-y += kalama-ipa.dtbo
+dtbo-y += kalama-pinn-ipa.dtbo
 endif
 
 always-y	:= $(dtb-y) $(dtbo-y)
