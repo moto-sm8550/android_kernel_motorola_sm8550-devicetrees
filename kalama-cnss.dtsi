@@ -60,14 +60,16 @@
 			pinctrl-1 = <&cnss_wlan_en_sleep>;
 			qcom,wlan;
 			qcom,wlan-rc-num = <1>;
+			qcom,rc-ep-short-channel;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 			qcom,wlan-cbc-enabled;
 			cnss-enable-self-recovery;
 			use-pm-domain;
 			mboxes = <&qmp_aop 0>;
+			qcom,vreg_ol_cpr ="s2g";
 
 			vdd-wlan-aon-supply = <&S2G>;
-			qcom,vdd-wlan-aon-config = <980000 980000 0 0 1>;
+			qcom,vdd-wlan-aon-config = <1012000 1012000 0 0 1>;
 			vdd-wlan-dig-supply = <&S4E>;
 			qcom,vdd-wlan-dig-config = <966000 966000 0 0 1>;
 			vdd-wlan-io-supply = <&L15B>;
@@ -135,7 +137,7 @@
 			"{class: wlan_pdc, ss: rf, res: s2g.m, enable: 1}",
 			"{class: wlan_pdc, ss: rf, res: s2g.v, enable: 1}",
 			"{class: wlan_pdc, ss: rf, res: s2g.v, upval: 1012}",
-			"{class: wlan_pdc, ss: rf, res: s2g.v, dwnval: 515}",
+			"{class: wlan_pdc, ss: rf, res: s2g.v, dwnval: 800}",
 			"{class: wlan_pdc, ss: bb, res: pdc, enable: 0}";
 		};
 
