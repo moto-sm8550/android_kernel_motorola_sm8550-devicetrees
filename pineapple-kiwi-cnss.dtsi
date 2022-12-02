@@ -151,25 +151,16 @@
 			"VDD19_PMU_RFA_I", "s6c";
 
 		qcom,pdc_init_table =
-		"{class: wlan_pdc, ss: rf, res: s3c.v, upval: 932}",
-		"{class: wlan_pdc, ss: rf, res: s3c.v, dwnval: 628}",
-		"{class: wlan_pdc, ss: rf, res: l15b.v, upval: 1800}",
-		"{class: wlan_pdc, ss: rf, res: l15b.v, dwnval: 1800}",
-		"{class: wlan_pdc, ss: rf, res: l3c.v, upval: 1200}",
-		"{class: wlan_pdc, ss: rf, res: l3c.v, dwnval: 1200}",
-		"{class: wlan_pdc, ss: rf, res: s1c.v, upval: 1332}",
-		"{class: wlan_pdc, ss: rf, res: s1c.v, dwnval: 960}",
-		"{class: wlan_pdc, ss: rf, res: s6c.v, upval: 1880}",
-		"{class: wlan_pdc, ss: rf, res: s6c.v, dwnval: 1836}",
-		"{class: wlan_pdc, ss: rf, res: l6k.v, upval: 1800}",
-		"{class: wlan_pdc, ss: rf, res: l6k.v, dwnval: 1800}",
-		"{class: wlan_pdc, ss: rf, res: s2c.m, enable: 0}",
-		"{class: wlan_pdc, ss: rf, res: s2c.v, enable: 0}",
-		"{class: wlan_pdc, ss: bb, res: pdc, enable: 1}",
-		"{class: wlan_pdc, ss: bb, res: s2c.v, upval: 992}",
-		"{class: wlan_pdc, ss: bb, res: s2c.v, dwnval: 528}",
-		"{class: wlan_pdc, ss: bb, res: s4i.v, upval: 956}",
-		"{class: wlan_pdc, ss: bb, res: s4i.v, dwnval: 436}";
+		"{class: wlan_pdc, ss: rf, res: s3c.v, upval: 916}",
+		"{class: wlan_pdc, ss: rf, res: s3c.v, dwnval: 612}",
+		"{class: wlan_pdc, ss: rf, res: s1c.v, upval: 1316}",
+		"{class: wlan_pdc, ss: rf, res: s1c.v, dwnval: 944}",
+		"{class: wlan_pdc, ss: rf, res: s6c.v, upval: 1864}",
+		"{class: wlan_pdc, ss: rf, res: s6c.v, dwnval: 1820}",
+		"{class: wlan_pdc, ss: bb, res: s2c.v, upval: 976}",
+		"{class: wlan_pdc, ss: bb, res: s2c.v, dwnval: 512}",
+		"{class: wlan_pdc, ss: bb, res: s4i.v, upval: 940}",
+		"{class: wlan_pdc, ss: bb, res: s4i.v, dwnval: 420}";
 	};
 };
 
