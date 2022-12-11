@@ -72,15 +72,15 @@
 		vdd-wlan-io12-supply = <&L3C>;
 		qcom,vdd-wlan-io12-config = <1200000 1200000 0 0 1>;
 		vdd-wlan-supply = <&S4I>;
-		qcom,vdd-wlan-config = <956000 956000 0 0 1>;
+		qcom,vdd-wlan-config = <940000 940000 0 0 1>;
 		vdd-wlan-aon-supply = <&S2C>;
-		qcom,vdd-wlan-aon-config = <992000 992000 0 0 1>;
+		qcom,vdd-wlan-aon-config = <976000 976000 0 0 1>;
 		vdd-wlan-dig-supply = <&S3C>;
-		qcom,vdd-wlan-dig-config = <932000 932000 0 0 1>;
+		qcom,vdd-wlan-dig-config = <916000 916000 0 0 1>;
 		vdd-wlan-rfa1-supply = <&S6C>;
-		qcom,vdd-wlan-rfa1-config = <1880000 1880000 0 0 1>;
+		qcom,vdd-wlan-rfa1-config = <1864000 1864000 0 0 1>;
 		vdd-wlan-rfa2-supply = <&S1C>;
-		qcom,vdd-wlan-rfa2-config = <1332000 1332000 0 0 1>;
+		qcom,vdd-wlan-rfa2-config = <1316000 1316000 0 0 1>;
 		vdd-wlan-ant-share-supply = <&L6K>;
 		qcom,vdd-wlan-ant-share-config = <1800000 1800000 0 0 1>;
 
