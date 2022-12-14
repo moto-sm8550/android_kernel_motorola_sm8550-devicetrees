@@ -29,6 +29,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_MONACO),y)
 dtbo-y += monaco-cnss.dtbo
+dtbo-y += monaco-standalone-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_QTI_QUIN_GVM),y)
