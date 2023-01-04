@@ -53,6 +53,8 @@
 		wlan-en-gpio = <&tlmm 16 0>;
 		qcom,bt-en-gpio = <&tlmm 17 0>;
 		qcom,sw-ctrl-gpio = <&tlmm 18 0>;
+		/* List of GPIOs to be setup for interrupt wakeup capable */
+		mpm_wake_set_gpios = <18 19>;
 		pinctrl-names = "wlan_en_active", "wlan_en_sleep";
 		pinctrl-0 = <&cnss_wlan_en_active>;
 		pinctrl-1 = <&cnss_wlan_en_sleep>;
@@ -67,16 +69,20 @@
 
 		vdd-wlan-io-supply = <&L15B>;
 		qcom,vdd-wlan-io-config = <1800000 1800000 0 0 1>;
+		vdd-wlan-io12-supply = <&L3C>;
+		qcom,vdd-wlan-io12-config = <1200000 1200000 0 0 1>;
 		vdd-wlan-supply = <&S4I>;
-		qcom,vdd-wlan-config = <1000000 1000000 0 0 1>;
+		qcom,vdd-wlan-config = <940000 940000 0 0 1>;
 		vdd-wlan-aon-supply = <&S2C>;
-		qcom,vdd-wlan-aon-config = <980000 980000 0 0 1>;
+		qcom,vdd-wlan-aon-config = <976000 976000 0 0 1>;
 		vdd-wlan-dig-supply = <&S3C>;
-		qcom,vdd-wlan-dig-config = <950000 950000 0 0 1>;
+		qcom,vdd-wlan-dig-config = <916000 916000 0 0 1>;
 		vdd-wlan-rfa1-supply = <&S6C>;
-		qcom,vdd-wlan-rfa1-config = <1900000 1900000 0 0 1>;
+		qcom,vdd-wlan-rfa1-config = <1864000 1864000 0 0 1>;
 		vdd-wlan-rfa2-supply = <&S1C>;
-		qcom,vdd-wlan-rfa2-config = <1350000 1350000 0 0 1>;
+		qcom,vdd-wlan-rfa2-config = <1316000 1316000 0 0 1>;
+		vdd-wlan-ant-share-supply = <&L6K>;
+		qcom,vdd-wlan-ant-share-config = <1800000 1800000 0 0 1>;
 
 		interconnects =
 		<&pcie_noc MASTER_PCIE_0 &pcie_noc SLAVE_ANOC_PCIE_GEM_NOC>,
@@ -151,9 +157,6 @@
 		"{class: wlan_pdc, ss: rf, res: s1c.v, dwnval: 944}",
 		"{class: wlan_pdc, ss: rf, res: s6c.v, upval: 1864}",
 		"{class: wlan_pdc, ss: rf, res: s6c.v, dwnval: 1820}",
-		"{class: wlan_pdc, ss: rf, res: s2c.m, enable: 0}",
-		"{class: wlan_pdc, ss: rf, res: s2c.v, enable: 0}",
-		"{class: wlan_pdc, ss: bb, res: pdc, enable: 1}",
 		"{class: wlan_pdc, ss: bb, res: s2c.v, upval: 976}",
 		"{class: wlan_pdc, ss: bb, res: s2c.v, dwnval: 512}",
 		"{class: wlan_pdc, ss: bb, res: s4i.v, upval: 940}",
