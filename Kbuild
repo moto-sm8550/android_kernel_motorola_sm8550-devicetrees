@@ -39,6 +39,7 @@ endif
 ifeq ($(CONFIG_QTI_QUIN_GVM),y)
 dtbo-y += sa8155p-vm-cnss.dtbo
 dtbo-y += sa8195p-vm-cnss.dtbo
+dtbo-y += direwolf-vm-dual-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SA525),y)
