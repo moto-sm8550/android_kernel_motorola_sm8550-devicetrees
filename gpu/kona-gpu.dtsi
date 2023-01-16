@@ -46,6 +46,9 @@
 		vddcx-supply = <&gpu_cx_gdsc>;
 		vdd-supply = <&gpu_gx_gdsc>;
 
+		nvmem-cells = <&gpu_lm_efuse>, <&gpu_speed_bin>;
+		nvmem-cell-names = "isense_slope", "speed_bin";
+
 		interconnect-names = "gpu_icc_path";
 		interconnects = <&gem_noc MASTER_GFX3D &mc_virt SLAVE_EBI1>;
 
