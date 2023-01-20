@@ -1,0 +1,52 @@
+#include <dt-bindings/interconnect/qcom,sdxpinn.h>
+
+&soc {
+	wlan: qcom,cnss-qca-converged {
+		compatible = "qcom,cnss-qca-converged";
+		qcom,wlan;
+		qcom,multi-wlan-exchg;
+		qcom,wlan-rc-num = <2>;
+		qcom,bus-type=<0>;
+		qcom,notify-modem-status;
+
+		reg = <0xb0000000 0x10000>;
+		reg-names = "smmu_iova_ipa";
+
+		vdd-wlan-rfa1-supply = <&pmx75_l6>;
+		vdd-wlan-supply = <&vreg_conn_pa>;
+
+		wlan_vregs = "vdd-wlan-rfa1", "vdd-wlan";
+		qcom,vdd-wlan-config = <0 0 0 0 0>;
+		qcom,vdd-wlan-rfa1-config = <1800000 1800000 0 0 0>;
+		wlan-en-gpio = <&pmk8550_gpios 3 0>;
+		pinctrl-names = "wlan_en_active", "wlan_en_sleep";
+		pinctrl-0 = <&wlan_en_active>;
+		pinctrl-1 = <&wlan_en_sleep>;
+
+		chip_cfg@0 {
+			supported-ids = <0x003e>;
+			wlan_vregs;
+			qcom,wlan-ramdump-dynamic = <0x400000>;
+		};
+	};
+};
+
+&pcie2_rp {
+	#address-cells = <5>;
+	#size-cells = <0>;
+	cnss_pci: cnss_pci {
+		reg = <0 0 0 0 0>;
+		qcom,iommu-group = <&cnss_pci_iommu_group>;
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		cnss_pci_iommu_group: cnss_pci_iommu_group {
+			qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
+			qcom,iommu-dma = "atomic";
+			qcom,iommu-pagetable = "coherent";
+			qcom,iommu-faults = "stall-disable", "no-CFRE", "HUPCF",
+					    "non-fatal";
+		};
+	};
+};
