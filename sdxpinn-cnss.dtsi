@@ -64,9 +64,6 @@
 			use-pm-domain;
 			mboxes = <&qmp_aop 0>;
 
-			clocks = <&rpmhcc RPMH_RF_CLK1>;
-			clock-names = "rf_clk";
-
 			vdd-wlan-io-supply = <&L6B>;
 			qcom,vdd-wlan-io-config = <1800000 1800000 0 0 1>;
 			vdd-wlan-supply = <&S1K>;
