@@ -12,6 +12,6 @@
 /{
 	model = "Qualcomm Technologies, Inc. kona-iot v2.1";
 	compatible = "qcom,kona", "qcom,kona-iot";
-	qcom,msm-id = <356 0x20001>, <481 0x20001>;
+	qcom,msm-id = <356 0x20001>, <481 0x20001>, <548 0x20001>;
 	qcom,board-id = <0 0>;
 };
