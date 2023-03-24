@@ -4,8 +4,6 @@
 #include "kona-iot-vc-cnss.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. kona-iot VC";
 	compatible = "qcom,kona-iot";
-	qcom,board-id = <0x010020 0x07>;
-	qcom,msm-id = <0x1e1 0x20001>;
+	qcom,board-id = <0x010020 0x07>, <0x301000b 0x00>;
 };
