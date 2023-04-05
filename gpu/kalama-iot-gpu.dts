@@ -11,12 +11,11 @@
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
 #include "kalama-v2-gpu.dtsi"
-#include "kalama-v2-gpu-pwrlevels.dtsi"
+#include "kalama-iot-gpu-pwrlevels.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Kalama v2";
-	compatible = "qcom,kalama";
-	qcom,msm-id = <519 0x20000>, <536 0x20000>;
+	compatible = "qcom,kalama", "qcom,kalamap";
+	qcom,msm-id = <603 0x20000>, <604 0x20000>;
 	qcom,board-id = <0 0>;
 };
-
