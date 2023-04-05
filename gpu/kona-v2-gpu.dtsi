@@ -306,15 +306,15 @@
 				qcom,bus-max = <9>;
 
 				qcom,acd-level = <0xa02b5ffd>;
-				};
+			};
 
 			qcom,gpu-pwrlevel@4 {
 				reg = <4>;
 				qcom,gpu-freq = <441600000>;
 				qcom,level = <RPMH_REGULATOR_LEVEL_SVS_L0>;
-				qcom,bus-freq-ddr = <8>;
-				qcom,bus-min-ddr = <7>;
-				qcom,bus-max-ddr = <9>;
+				qcom,bus-freq = <8>;
+				qcom,bus-min = <7>;
+				qcom,bus-max = <9>;
 
 				qcom,acd-level = <0xa02b5ffd>;
 			};
