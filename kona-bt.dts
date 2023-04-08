@@ -4,8 +4,6 @@
 #include "kona-bt.dtsi"
 
 / {
-       model = "Qualcomm Technologies, Inc. kona iot SoCs";
        compatible = "qcom,kona", "qcom,kona-iot";
-       qcom,msm-id = <0x1e1 0x20001>;
-       qcom,board-id = <0x010020 0x07>;
+       qcom,board-id = <0x010020 0x07>, <0x301000b 0x00>;
 };
