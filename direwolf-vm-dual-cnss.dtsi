@@ -108,7 +108,7 @@
 			reg-names = "smmu_iova_ipa";
 			supported-ids = <0x1103>;
 			wlan_vregs;
-
+			qcom,no-bwscale;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 		};
 	};
@@ -184,7 +184,7 @@
 			reg-names = "smmu_iova_ipa";
 			supported-ids = <0x1103>;
 			wlan_vregs;
-
+			qcom,no-bwscale;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 		};
 	};
