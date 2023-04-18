@@ -111,6 +111,10 @@
 			"{class: wlan_pdc, ss: bb, res: s1k.v, upval: 940}",
 			"{class: wlan_pdc, ss: bb, res: s1k.v, dwnval: 420}";
 		};
+
+		cnss_cdev_apss: qcom,cnss_cdev1 {
+			#cooling-cells = <2>;
+		};
 	};
 };
 
