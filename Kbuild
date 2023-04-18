@@ -6,6 +6,7 @@ endif
 ifeq ($(CONFIG_ARCH_KALAMA), y)
 dtbo-y += gpu/kalama-gpu.dtbo \
 		gpu/kalama-v2-gpu.dtbo \
+		gpu/kalama-iot-gpu.dtbo \
 		gpu/kalamap-hhg-gpu.dtbo
 endif
 
@@ -22,6 +23,12 @@ endif
 
 ifeq ($(CONFIG_ARCH_SA8195), y)
 dtbo-y += gpu/sa8195p-gpu.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_KONA), y)
+dtbo-y += gpu/kona-gpu.dtbo \
+		gpu/kona-v2-gpu.dtbo \
+		gpu/kona-v2.1-gpu.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)

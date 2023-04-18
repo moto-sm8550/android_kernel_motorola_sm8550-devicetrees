@@ -31,11 +31,24 @@
 			<&gcc GCC_GPU_MEMNOC_GFX_CLK>,
 			<&gpucc GPU_CC_CX_GMU_CLK>,
 			<&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>,
-			<&rpmcc RPM_SMD_QDSS_CLK>;
+			<&rpmcc RPM_SMD_QDSS_CLK>,
+			<&gpucc GPU_CC_AHB_CLK>,
+			<&gcc GCC_GPU_MEMNOC_GFX_CLK>,
+			<&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>,
+			<&gcc GCC_GPU_SNOC_DVM_GFX_CLK>;
 
-		clock-names = "core_clk", "rbbmtimer_clk", "iface_clk",
-				"ahb_clk", "mem_clk", "gmu_clk",
-				"smmu_vote", "apb_pclk";
+		clock-names = "core_clk",
+				"rbbmtimer_clk",
+				"iface_clk",
+				"ahb_clk",
+				"mem_clk",
+				"gmu_clk",
+				"smmu_vote",
+				"apb_pclk",
+				"gpu_cc_ahb",
+				"gcc_gpu_memnoc_gfx",
+				"gpu_cc_hlos1_vote_gpu_smmu",
+				"gcc_gpu_snoc_dvm_gfx";
 
 		interconnects = <&bimc MASTER_GRAPHICS_3D &bimc SLAVE_EBI_CH0>;
 		interconnect-names = "gpu_icc_path";
