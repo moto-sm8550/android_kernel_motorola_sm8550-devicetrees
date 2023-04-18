@@ -95,6 +95,17 @@
 
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 		};
+
+		chip_cfg@3 {
+			supported-ids = <0x1107>;
+			wlan_vregs = "vdd-wlan-vl", "vdd-wlan-vm",
+				     "vdd-wlan-vh";
+			qcom,vdd-wlan-vl-config = <1055000 1055000 0 0 0>;
+			qcom,vdd-wlan-vm-config = <1350000 1350000 450000 0 0>;
+			qcom,vdd-wlan-vh-config = <1900000 1900000 450000 0 0>;
+
+			qcom,wlan-ramdump-dynamic = <0x600000>;
+		};
 	};
 };
 
