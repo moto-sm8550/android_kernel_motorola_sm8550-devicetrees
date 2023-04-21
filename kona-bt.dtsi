@@ -51,7 +51,7 @@
         #address-cells = <1>;
         #size-cells = <1>;
         slimbus: btfmslim-driver {
-          compatible = "slim217,221";
+          compatible = "slim217,220";
           reg = <1 0>;
         };
       };
