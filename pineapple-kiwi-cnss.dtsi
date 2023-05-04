@@ -65,7 +65,8 @@
 		cnss-enable-self-recovery;
 		use-pm-domain;
 		qcom,same-dt-multi-dev;
-		mboxes = <&qmp_aop 0>;
+		/* For AOP communication, use direct QMP instead of mailbox */
+		qcom,qmp = <&aoss_qmp>;
 
 		vdd-wlan-io-supply = <&L15B>;
 		qcom,vdd-wlan-io-config = <1800000 1800000 0 0 1>;
