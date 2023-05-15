@@ -44,13 +44,15 @@
 		ranges = <0xb0000000 0xb0000000 0x10000>;
 
 		vdd-wlan-ctrl1-supply = <&vreg_conn_pa>;
+		vdd-wlan-ctrl2-supply = <&vreg_conn_1p8>;
 		vdd-wlan-vl-supply = <&pm8775_c_l2>;
 		vdd-wlan-vm-supply = <&pm8775_e_l6>;
 		vdd-wlan-vh-supply = <&pm8775_a_s5>;
 
-		wlan_vregs = "vdd-wlan-ctrl1", "vdd-wlan-vl",
+		wlan_vregs = "vdd-wlan-ctrl1", "vdd-wlan-ctrl2", "vdd-wlan-vl",
 				"vdd-wlan-vm", "vdd-wlan-vh";
 		qcom,vdd-wlan-ctrl1-config = <0 0 0 0 0>;
+		qcom,vdd-wlan-ctrl2-config = <0 0 0 0 0>;
 		/* no vote-off as sw_ctrl is not supported */
 		qcom,vdd-wlan-vl-config = <1055000 1055000 0 0 0>;
 		qcom,vdd-wlan-vm-config = <1350000 1350000 450000 0 0>;
