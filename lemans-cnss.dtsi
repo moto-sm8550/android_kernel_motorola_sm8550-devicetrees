@@ -94,6 +94,7 @@
 			qcom,vdd-wlan-vh-config = <1900000 1900000 450000 0 0>;
 
 			qcom,wlan-ramdump-dynamic = <0x420000>;
+			qcom,no-bwscale;
 		};
 
 		chip_cfg@3 {

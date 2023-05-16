@@ -81,6 +81,7 @@
 			supported-ids = <0x1103>;
 			wlan_vregs;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
+			qcom,no-bwscale;
 		};
 	};
 };
