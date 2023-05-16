@@ -89,7 +89,7 @@
 			qcom,qrtr_node_id = <0x10>;
 			supported-ids = <0x1101>;
 			wlan_vregs;
-
+			qcom,sleep-clk-support;
 			qcom,wlan-ramdump-dynamic = <0x400000>;
 		};
 
@@ -108,7 +108,7 @@
 			reg-names = "smmu_iova_ipa";
 			supported-ids = <0x1103>;
 			wlan_vregs;
-
+			qcom,no-bwscale;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 		};
 	};
@@ -164,7 +164,7 @@
 			qcom,qrtr_node_id = <0x20>;
 			supported-ids = <0x1101>;
 			wlan_vregs;
-
+			qcom,sleep-clk-support;
 			qcom,wlan-ramdump-dynamic = <0x400000>;
 		};
 
@@ -184,7 +184,7 @@
 			reg-names = "smmu_iova_ipa";
 			supported-ids = <0x1103>;
 			wlan_vregs;
-
+			qcom,no-bwscale;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 		};
 	};

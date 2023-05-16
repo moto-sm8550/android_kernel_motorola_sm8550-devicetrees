@@ -251,7 +251,7 @@
 			"{class: wlan_pdc, ss: rf, res: s2g.v, enable: 0}",
 			"{class: wlan_pdc, ss: bb, res: pdc, enable: 1}",
 			"{class: wlan_pdc, ss: bb, res: s2g.v, upval: 976}",
-			"{class: wlan_pdc, ss: bb, res: s2g.v, dwnval: 512}",
+			"{class: wlan_pdc, ss: bb, res: s2g.v, dwnval: 800}",
 			"{class: wlan_pdc, ss: bb, res: s5g.v, upval: 940}",
 			"{class: wlan_pdc, ss: bb, res: s5g.v, dwnval: 420}";
 		};
