@@ -11,6 +11,10 @@ ifeq ($(CONFIG_ARCH_KHAJE),y)
 dtbo-y += khaje-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_BLAIR),y)
+dtbo-y += blair-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SA8155),y)
 dtbo-y += sa8155p-cnss.dtbo
 endif
@@ -44,6 +48,7 @@ dtbo-y += sa8295p-vm-cnss.dtbo
 dtbo-y += direwolf-vm-dual-cnss.dtbo
 dtbo-y += lemans-vm-cnss.dtbo
 endif
+
 
 ifeq ($(CONFIG_ARCH_SA525),y)
 dtbo-y += sa525m-cnss.dtbo
