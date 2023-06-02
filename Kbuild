@@ -15,6 +15,10 @@ ifeq ($(CONFIG_ARCH_KONA),y)
 dtbo-y += kona-bt.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_CROW),y)
+dtbo-y += crow-bt.dtbo
+endif
+
 always-y        := $(dtb-y) $(dtbo-y)
 subdir-y        := $(dts-dirs)
 clean-files     := *.dtb *.dtbo
