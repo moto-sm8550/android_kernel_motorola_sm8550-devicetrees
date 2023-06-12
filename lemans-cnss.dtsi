@@ -59,9 +59,10 @@
 		qcom,vdd-wlan-vh-config = <1900000 1900000 450000 0 0>;
 		wlan-en-gpio = <&pm8775_2_gpios 7 0>;
 		qcom,bt-en-gpio = <&pm8775_2_gpios 8 0>;
-		pinctrl-names = "wlan_en_active", "wlan_en_sleep";
+		pinctrl-names = "wlan_en_active", "wlan_en_sleep", "default";
 		pinctrl-0 = <&cnss_wlan_en_active>;
 		pinctrl-1 = <&cnss_wlan_en_sleep>;
+		pinctrl-2 = <&cnss_wlan_en_sleep>;
 
 		chip_cfg@0 {
 			supported-ids = <0x1101>;
@@ -94,6 +95,18 @@
 			qcom,vdd-wlan-vh-config = <1900000 1900000 450000 0 0>;
 
 			qcom,wlan-ramdump-dynamic = <0x420000>;
+			qcom,no-bwscale;
+		};
+
+		chip_cfg@3 {
+			supported-ids = <0x1107>;
+			wlan_vregs = "vdd-wlan-vl", "vdd-wlan-vm",
+				     "vdd-wlan-vh";
+			qcom,vdd-wlan-vl-config = <1055000 1055000 0 0 0>;
+			qcom,vdd-wlan-vm-config = <1350000 1350000 450000 0 0>;
+			qcom,vdd-wlan-vh-config = <1900000 1900000 450000 0 0>;
+
+			qcom,wlan-ramdump-dynamic = <0x600000>;
 		};
 	};
 };
