@@ -42,7 +42,20 @@
           qcom,bt-vdd-rfa1-config = <1900000 1900000 0 0>;
           qcom,bt-vdd-rfa2-config = <1350000 1350000 0 0>;
           qcom,bt-vdd-asd-config = <3024000 3304000 10000 0>;
-          };
+    };
+
+    slim_msm: slim@3ac0000 {
+      status = "ok";
+      ngd@1 {
+        reg = <1>;
+        #address-cells = <1>;
+        #size-cells = <1>;
+        slimbus: btfmslim-driver {
+          compatible = "slim217,220";
+          reg = <1 0>;
+        };
+      };
+     };
 };
 
 //uart instance
