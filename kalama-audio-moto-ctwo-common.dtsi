@@ -3,4 +3,5 @@
 */
 
 #include "kalama-audio-overlay.dtsi"
+#include "kalama-ctwo-audio-overlay.dtsi"
 
