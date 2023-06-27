@@ -73,10 +73,10 @@
 		compatible = "rtc6226";
 		reg = <0x64>;
 		fmint-gpio = <&tlmm 113 0>;
-		vdd-supply = <&L7B>;
+		vdd-supply = <&L18B>;
 		rtc6226,vdd-supply-voltage = <2800000 2800000>;
 		rtc6226,vdd-load = <15000>;
-		vio-supply = <&L18B>;
+		vio-supply = <&L7B>;
 		rtc6226,vio-supply-voltage = <1800000 1800000>;
 	};
 };
