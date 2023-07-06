@@ -83,7 +83,7 @@
 				"s2b", "rf",
 				"l15b", "rf",
 				"s1k", "bb",
-				"s7b", "bb";
+				"s7b", "rf";
 
 			qcom,pmu_vreg_map =
 				"VDD095_MX_PMU", "s7b",
@@ -97,17 +97,13 @@
 				"VDD19_PMU_RFA_I", "s4b";
 
 			qcom,pdc_init_table =
-			"{class: wlan_pdc, ss: rf, res: s7b.v, upval: 916}",
-			"{class: wlan_pdc, ss: rf, res: s7b.v, dwnval: 612}",
+			"{class: wlan_pdc, ss: rf, res: s7b.v, upval: 976}",
+			"{class: wlan_pdc, ss: rf, res: s7b.v, dwnval: 800}",
 			"{class: wlan_pdc, ss: rf, res: s2b.v, upval: 1316}",
 			"{class: wlan_pdc, ss: rf, res: s2b.v, dwnval: 944}",
 			"{class: wlan_pdc, ss: rf, res: s4b.v, upval: 1864}",
 			"{class: wlan_pdc, ss: rf, res: s4b.v, dwnval: 1820}",
-			"{class: wlan_pdc, ss: rf, res: s7b.m, enable: 0}",
-			"{class: wlan_pdc, ss: rf, res: s7b.v, enable: 0}",
 			"{class: wlan_pdc, ss: bb, res: pdc, enable: 1}",
-			"{class: wlan_pdc, ss: bb, res: s7b.v, upval: 976}",
-			"{class: wlan_pdc, ss: bb, res: s7b.v, dwnval: 512}",
 			"{class: wlan_pdc, ss: bb, res: s1k.v, upval: 940}",
 			"{class: wlan_pdc, ss: bb, res: s1k.v, dwnval: 420}";
 		};

@@ -123,7 +123,7 @@
 
 		cnss_pci_iommu_group: cnss_pci_iommu_group {
 		qcom,iommu-dma-addr-pool = <0xa0000000 0x10000000>;
-		qcom,iommu-dma = "atomic";
+		qcom,iommu-dma = "fastmap";
 		qcom,iommu-pagetable = "coherent";
 		qcom,iommu-faults = "stall-disable", "HUPCF", "no-CFRE",
 			 "non-fatal";
