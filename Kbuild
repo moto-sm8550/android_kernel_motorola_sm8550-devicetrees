@@ -19,6 +19,10 @@ ifeq ($(CONFIG_ARCH_CROW),y)
 dtbo-y += crow-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_SA6155),y)
+dtbo-y += sa6155p-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SA8155),y)
 dtbo-y += sa8155p-cnss.dtbo
 endif
