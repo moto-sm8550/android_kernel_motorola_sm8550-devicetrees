@@ -54,6 +54,8 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
+			qcom,initial-pwrlevel = <7>;
+
 			qcom,sku-codes = <SKU_CODE(PCODE_UNKNOWN, FC_AC)
 					SKU_CODE(PCODE_0, FC_Y0)
 					SKU_CODE(PCODE_0, FC_Y1)>;
@@ -189,6 +191,8 @@
 
 			#address-cells = <1>;
 			#size-cells = <0>;
+
+			qcom,initial-pwrlevel = <6>;
 
 			qcom,sku-codes = <SKU_CODE(PCODE_UNKNOWN, FC_AB)
 					SKU_CODE(PCODE_UNKNOWN, FC_UNKNOWN)>;
