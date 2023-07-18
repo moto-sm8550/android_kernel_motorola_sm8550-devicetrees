@@ -7,6 +7,10 @@
 	qcom,cdc-micbias3-mv = <2800>;
 };
 
+&wsa884x_0220 {
+	qcom,boost_voltage_11v;
+};
+
 &kalama_snd {
 	qcom,audio-routing =
 		"AMIC1", "Analog Mic1",
