@@ -63,6 +63,7 @@
 			qcom,wlan-ramdump-dynamic = <0x780000>;
 			use-pm-domain;
 			mboxes = <&qmp_aop 0>;
+			platform-name-required;
 
 			vdd-wlan-io-supply = <&L6B>;
 			qcom,vdd-wlan-io-config = <1800000 1800000 0 0 1>;
