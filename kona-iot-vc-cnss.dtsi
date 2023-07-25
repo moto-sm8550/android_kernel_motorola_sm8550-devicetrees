@@ -50,6 +50,7 @@
 		reg-names = "smmu_iova_ipa", "tcs_cmd";
 		wlan-en-gpio = <&tlmm 20 0>;
 		qcom,bt-en-gpio = <&tlmm 21 0>;
+		qcom,sw-ctrl-gpio = <&tlmm 124 0>;
 		pinctrl-names = "wlan_en_active", "wlan_en_sleep";
 		pinctrl-0 = <&cnss_wlan_en_active>;
 		pinctrl-1 = <&cnss_wlan_en_sleep>;
@@ -57,6 +58,8 @@
 		qcom,same-dt-multi-dev;
 		cnss-enable-self-recovery;
 		qcom,wlan-rc-num = <0>;
+		qcom,wlan-ramdump-dynamic = <0x420000>;
+		qcom,smmu-s1-enable;
 		qcom,cmd_db_name = "smpf2";
 		qcom,set-wlaon-pwr-ctrl;
 
@@ -67,45 +70,37 @@
 		vdd-wlan-rfa2-supply = <&S8C>;
 		wlan-ant-switch-supply = <&L5C>;
 
-		chip_cfg@0 {
-			supported-ids = <0x1101>;
-			qcom,wlan-ramdump-dynamic = <0x420000>;
-			qcom,smmu-s1-enable;
-			use-pm-domain;
-			mboxes = <&qmp_aop 0>;
-
-			wlan_vregs = "vdd-wlan-aon", "vdd-wlan-dig",
+		wlan_vregs = "vdd-wlan-aon", "vdd-wlan-dig",
 				"vdd-wlan-io", "vdd-wlan-rfa1",
 				"vdd-wlan-rfa2", "wlan-ant-switch";
 
-			qcom,vdd-wlan-aon-config = <950000 950000 0 0 1>;
-			qcom,vdd-wlan-dig-config = <950000 952000 0 0 1>;
-			qcom,vdd-wlan-io-config = <1800000 1800000 0 0 1>;
-			qcom,vdd-wlan-rfa1-config = <1900000 1900000 0 0 1>;
-			qcom,vdd-wlan-rfa2-config = <1350000 1350000 0 0 1>;
-			qcom,wlan-ant-switch-config = <1800000 1800000 0 0 0>;
+		qcom,vdd-wlan-aon-config = <950000 950000 0 0 1>;
+		qcom,vdd-wlan-dig-config = <950000 952000 0 0 1>;
+		qcom,vdd-wlan-io-config = <1800000 1800000 0 0 1>;
+		qcom,vdd-wlan-rfa1-config = <1900000 1900000 0 0 1>;
+		qcom,vdd-wlan-rfa2-config = <1350000 1350000 0 0 1>;
+		qcom,wlan-ant-switch-config = <1800000 1800000 0 0 0>;
 
-			interconnects = <&aggre2_noc MASTER_PCIE_0 &mc_virt SLAVE_EBI1>;
-			interconnect-names = "pcie_to_ddr";
+		interconnects = <&aggre2_noc MASTER_PCIE_0 &mc_virt SLAVE_EBI1>;
+		interconnect-names = "pcie_to_ddr";
 
-			qcom,icc-path-count = <1>;
-			qcom,bus-bw-cfg-count = <7>;
-			qcom,bus-bw-cfg =
-			/* no vote */
-			<0 0>,
-			/* idle: 0-18 Mbps, ddr freq: 451.2 MHz */
-			<2250 1600000>,
-			/* low: 18-60 Mbps, ddr freq: 451.2 MHz*/
-			<7500 1600000>,
-			/* medium: 60-240 Mbps, ddr freq: 451.2 MHz */
-			<30000 1804800>,
-			/* high: 240 - 800 Mbps, ddr freq: 451.2 MHz */
-			<100000 1804800>,
-			/* very high: 800 - 1400 Mbps, ddr freq: 1555.2 MHz */
-			<175000 6220800>,
-			/* low (latency critical): 18 - 60 Mbps, ddr freq: 547.2 MHz */
-			<7500 2188800>;
-		};
+		qcom,icc-path-count = <1>;
+		qcom,bus-bw-cfg-count = <7>;
+		qcom,bus-bw-cfg =
+		/* no vote */
+		<0 0>,
+		/* idle: 0-18 Mbps, ddr freq: 451.2 MHz */
+		<2250 1600000>,
+		/* low: 18-60 Mbps, ddr freq: 451.2 MHz*/
+		<7500 1600000>,
+		/* medium: 60-240 Mbps, ddr freq: 451.2 MHz */
+		<30000 1804800>,
+		/* high: 240 - 800 Mbps, ddr freq: 451.2 MHz */
+		<100000 1804800>,
+		/* very high: 800 - 1400 Mbps, ddr freq: 1555.2 MHz */
+		<175000 6220800>,
+		/* low (latency critical): 18 - 60 Mbps, ddr freq: 547.2 MHz */
+		<7500 2188800>;
 	};
 };
 
