@@ -5,6 +5,7 @@
 &wcd938x_codec {
 	qcom,cdc-micbias1-mv = <2800>;
 	qcom,cdc-micbias3-mv = <2800>;
+	qcom,cdc-micbias4-mv = <2800>;
 };
 
 &wsa884x_0220 {
