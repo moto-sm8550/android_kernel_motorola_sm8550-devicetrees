@@ -77,7 +77,7 @@
 		dma-coherent;
 		qcom,fw-prefix;
 		qcom,wlan;
-		tsens = "quiet-therm";
+		tsens = "sys-therm-3";
 		qcom,wlan-msa-fixed-region = <&wlan_msa_moselle_mem>;
 		vdd-cx-mx-supply = <&S3B>;
 		qcom,vdd-cx-mx-config = <880000 1040000 0 0 1>;
