@@ -26,6 +26,8 @@ dtbo-$(CONFIG_OBERON_DTB) += kalama-audio-moto-oberon-evb.dtbo
 
 dtbo-$(CONFIG_CTWO_DTB) += kalama-audio-moto-ctwo-evb.dtbo
 
+dtbo-$(CONFIG_ARC_DTB) += kalama-audio-moto-arc-evb.dtbo
+
 endif  #($(CONFIG_MMI_DEVICE_DTBS),y)
 
 ifeq ($(CONFIG_ARCH_SA8155), y)
