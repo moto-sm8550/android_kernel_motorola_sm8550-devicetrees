@@ -60,7 +60,7 @@
 			pinctrl-1 = <&cnss_wlan_en_sleep>;
 			qcom,wlan;
 			qcom,wlan-rc-num = <0>;
-			qcom,wlan-ramdump-dynamic = <0x780000>;
+			qcom,wlan-ramdump-dynamic = <0x500000>;
 			use-pm-domain;
 			mboxes = <&qmp_aop 0>;
 			platform-name-required;
