@@ -7,6 +7,10 @@ ifeq ($(CONFIG_ARCH_CROW),y)
 dtbo-y += crow-ipa.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_TRINKET),y)
+dtbo-y += trinket-ipa.dtbo
+endif
+
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
