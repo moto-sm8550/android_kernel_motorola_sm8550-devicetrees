@@ -1,0 +1,7 @@
+/*
+  This file is original from qcom crow-audio-mtp.dtsi
+*/
+
+#include "crow-audio-overlay.dtsi"
+#include "crow-eqe-audio-overlay.dtsi"
+

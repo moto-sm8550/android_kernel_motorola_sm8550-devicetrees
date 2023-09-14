@@ -46,6 +46,8 @@ dtbo-y += khaje-audio.dtbo \
 endif
 
 ifeq ($(CONFIG_ARCH_CROW), y)
+#remove useless qcom device tree in moto build
+ifneq ($(CONFIG_MMI_DEVICE_DTBS),y)
 dtbo-y += crow-audio.dtbo \
                  crow-audio-idp.dtbo \
                  crow-audio-idp-wcd9395-aatc.dtbo \
@@ -53,6 +55,11 @@ dtbo-y += crow-audio.dtbo \
                  crow-audio-idp-wcd9395-wcd-dmic.dtbo \
                  crow-audio-qrd.dtbo \
                  crow-audio-atp.dtbo
+
+else
+dtbo-$(CONFIG_ARCH_CROW) += crow-audio.dtbo
+dtbo-$(CONFIG_EQE_DTB) += crow-audio-moto-eqe-evb.dtbo
+endif  #($(CONFIG_MMI_DEVICE_DTBS),y)
 endif
 
  always-y    := $(dtb-y) $(dtbo-y)
