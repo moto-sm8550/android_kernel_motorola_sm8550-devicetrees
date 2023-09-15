@@ -64,10 +64,11 @@
 			qcom,wlan-cbc-enabled;
 			cnss-enable-self-recovery;
 			use-pm-domain;
+			qcom,rc-ep-short-channel;
 			mboxes = <&qmp_aop 0>;
 
 			vdd-wlan-aon-supply = <&S2G>;
-			qcom,vdd-wlan-aon-config = <980000 980000 0 0 1>;
+			qcom,vdd-wlan-aon-config = <1012000 1012000 0 0 1>;
 			vdd-wlan-dig-supply = <&S4E>;
 			qcom,vdd-wlan-dig-config = <966000 966000 0 0 1>;
 			vdd-wlan-io-supply = <&L15B>;
@@ -76,6 +77,7 @@
 			qcom,vdd-wlan-rfa1-config = <1900000 1900000 0 0 1>;
 			vdd-wlan-rfa2-supply = <&S4G>;
 			qcom,vdd-wlan-rfa2-config = <1350000 1350000 0 0 1>;
+			qcom,vreg_ol_cpr = "s2g";
 
 			interconnects =
 			<&pcie_noc MASTER_PCIE_1 &pcie_noc SLAVE_ANOC_PCIE_GEM_NOC>,
@@ -135,7 +137,7 @@
 			"{class: wlan_pdc, ss: rf, res: s2g.m, enable: 1}",
 			"{class: wlan_pdc, ss: rf, res: s2g.v, enable: 1}",
 			"{class: wlan_pdc, ss: rf, res: s2g.v, upval: 1012}",
-			"{class: wlan_pdc, ss: rf, res: s2g.v, dwnval: 515}",
+			"{class: wlan_pdc, ss: rf, res: s2g.v, dwnval: 800}",
 			"{class: wlan_pdc, ss: bb, res: pdc, enable: 0}";
 		};
 
