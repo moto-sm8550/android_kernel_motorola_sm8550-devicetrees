@@ -57,10 +57,20 @@
 	asoc-codec-names = "msm-stub-codec.1", "lpass-cdc",
 			"swr-haptics",
 			"wsa-codec1", "wsa-codec2";
-
+	qcom,dmic-micbias-en-gpio = <&micbias_en_gpio>;
 	qcom,msm-mbhc-usbc-audio-supported = <0>;
 	qcom,msm-mbhc-hphl-swh = <0>;
 	qcom,msm-mbhc-gnd-swh = <0>;
+};
+
+&spf_core_platform  {
+	micbias_en_gpio: micbias_en_pinctrl {
+	compatible = "qcom,msm-cdc-pinctrl";
+	pinctrl-names = "aud_active", "aud_sleep";
+	pinctrl-0 = <&cdc_micbias_en_active>;
+	pinctrl-1 = <&cdc_micbias_en_sleep>;
+	#gpio-cells = <0>;
+	};
 };
 
 &spkr_02_sd_n_sleep {
@@ -98,8 +108,34 @@
         pins = "gpio17";
     };
 };
+&tlmm {
+	cdc_micbias_en_active: micbias_en_active {
+		mux {
+			pins = "gpio4";
+			function = "func1";
+		};
 
+		config {
+			pins = "gpio4";
+			drive-strength = <8>;
+			output-high;
+		};
+	};
 
+	cdc_micbias_en_sleep: micbias_en_sleep {
+		mux {
+			pins = "gpio4";
+			function = "func1";
+		};
+
+		config {
+			pins = "gpio4";
+			drive-strength = <2>;
+			bias-disable;
+			output-low;
+		};
+	};
+};
 &wsa2_macro {
 	status = "disabled";
 };
