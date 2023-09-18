@@ -10,10 +10,9 @@
 	model = "eqe";
 	compatible = "qcom,crow-idp", "qcom,crow", "qcom,idp", "mot,eqe";
 	qcom,msm-id = <608 0x10000>;
-	qcom,board-id = <0x41 0x9000>;
+	qcom,board-id = <0x41 0xa000>;
 };
-
-&qupv3_se1_i2c {
+&qupv3_se15_i2c {
         status = "ok";
         aw882xxacf_rcv: aw882xx_smartpa@34 { /* SPKL */
                  compatible = "awinic,aw882xx_smartpa";

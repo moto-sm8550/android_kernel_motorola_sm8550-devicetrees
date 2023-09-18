@@ -59,6 +59,7 @@ dtbo-y += crow-audio.dtbo \
 else
 dtbo-$(CONFIG_ARCH_CROW) += crow-audio.dtbo
 dtbo-$(CONFIG_EQE_DTB) += crow-audio-moto-eqe-evb.dtbo
+dtbo-$(CONFIG_EQE_DTB) += crow-audio-moto-eqe-evt.dtbo
 endif  #($(CONFIG_MMI_DEVICE_DTBS),y)
 endif
 
