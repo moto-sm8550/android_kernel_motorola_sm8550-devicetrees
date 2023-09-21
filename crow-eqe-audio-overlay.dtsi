@@ -79,7 +79,7 @@
         qcom,model = "crow-idp-aw882xx-snd-card";
         qcom,msm-mi2s-master = <1>, <1>, <1>, <1>, <1>, <1>;
         qcom,wcn-bt = <1>;
-        qcom,ext-disp-audio-rx = <0>;
+        qcom,ext-disp-audio-rx = <1>;
         qcom,mi2s-clk-attribute = <0x1>, <0x1>, <0x1>, <0x1>, <0x1>, <0x1>;
         swr-haptics-unsupported;
         qcom,audio-routing =
