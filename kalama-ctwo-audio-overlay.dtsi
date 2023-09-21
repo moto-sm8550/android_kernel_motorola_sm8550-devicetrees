@@ -2,6 +2,10 @@
 	status = "ok";
 };
 
+&wsa_macro {
+    qcom,wsa-system-gains= <1 9>, <1 9>;
+};
+
 &wcd938x_codec {
 	qcom,cdc-micbias1-mv = <2800>;
 	qcom,cdc-micbias3-mv = <2800>;
