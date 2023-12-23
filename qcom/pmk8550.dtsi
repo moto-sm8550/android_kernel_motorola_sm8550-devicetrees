@@ -45,6 +45,11 @@
 			ocp_log: ocp-log@76 {
 				reg = <0x76 0x6>;
 			};
+
+			sm1510_present@5d {
+				bits = <0x5 0x5>;
+				reg = <0x5D 0x1>;
+			};
 		};
 
 		pmk8550_sdam_2: sdam@7100 {
@@ -69,6 +74,16 @@
 			reg = <0x7500>;
 		};
 
+		pmk8550_sdam_7: sdam@7c00 {
+			compatible = "qcom,spmi-sdam";
+			reg = <0x7C00>;
+		};
+
+		pmk8550_sdam_8: sdam@7d00 {
+			compatible = "qcom,spmi-sdam";
+			reg = <0x7D00>;
+		};
+
 		pmk8550_sdam_21: sdam@8400 {
 			compatible = "qcom,spmi-sdam";
 			reg = <0x8400>;
@@ -77,6 +92,21 @@
 		pmk8550_sdam_22: sdam@8500 {
 			compatible = "qcom,spmi-sdam";
 			reg = <0x8500>;
+		};
+
+		pmk8550_sdam_44: sdam@9800 {
+			compatible = "qcom,spmi-sdam";
+			reg = <0x9800>;
+		};
+
+		pmk8550_sdam_45: sdam@9a00 {
+			#address-cells = <0x1>;
+			#size-cells = <0x1>;
+			compatible = "qcom,spmi-sdam";
+			reg = <0x9A00>;
+			sqm-timer@b8 {
+				reg = <0xB8 0x2>;
+			};
 		};
 
 		pmk8550_sdam_46: sdam@9d00 {

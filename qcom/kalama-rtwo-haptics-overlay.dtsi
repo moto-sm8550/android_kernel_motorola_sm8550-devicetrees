@@ -109,6 +109,87 @@
 		qcom,wf-brake-pattern = /bits/ 8 <0xff 0xff 0x9f 0x6f 0x3f 0x1f>;
 		qcom,wf-auto-res-disable;
 	};
+
+	primitive_0 {
+		qcom,primitive-id = <0x0>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0x0 0x0 0x0 0x0 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
+
+	primitive_1 {
+		qcom,primitive-id = <0x1>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0xFF 0x0 0x0 0x7F 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
+
+	primitive_2 {
+		qcom,primitive-id = <0x2>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0xFF 0x0 0x0 0x7F 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
+
+	primitive_3 {
+		qcom,primitive-id = <0x3>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0xFF 0x0 0x0 0x7F 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
+
+	primitive_4 {
+		qcom,primitive-id = <0x4>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0xFF 0x0 0x0 0x7F 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
+
+	primitive_5 {
+		qcom,primitive-id = <0x5>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0xFF 0x0 0x0 0x7F 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
+
+	primitive_6 {
+		qcom,primitive-id = <0x6>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0xFF 0x0 0x0 0x7F 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
+
+	primitive_7 {
+		qcom,primitive-id = <0x7>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0xFF 0x0 0x0 0x7F 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
+
+	primitive_8 {
+		qcom,primitive-id = <0x8>;
+		qcom,wf-auto-res-disable;
+		qcom,wf-brake-pattern = [00 00 00];
+		qcom,wf-pattern-data = <0xFF 0x0 0x0 0x7F 0x0 0x0>;
+		qcom,wf-pattern-period-us = <0x1047>;
+		qcom,wf-vmax-mv = <0x12C0>;
+	};
 };
 
 

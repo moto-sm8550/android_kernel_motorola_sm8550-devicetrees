@@ -164,6 +164,11 @@
 
 &usb0 {
 	usb-role-switch;
+
+	dwc3@a600000 {
+		snps,usb2-gadget-lpm-disable;
+	};
+
 	port {
 		usb_port0: endpoint {
 			remote-endpoint = <&usb_port0_connector>;
