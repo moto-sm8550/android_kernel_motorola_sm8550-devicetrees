@@ -1,0 +1,244 @@
+/* Copyright (c) 2022, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/* This is derivated from Qcom kalama-mtp-overlay.dts */
+
+/dts-v1/;
+/plugin/;
+
+#include "kalama-oberon-device-common-overlay.dtsi"
+#include <dt-bindings/leds/common.h>
+
+/ {
+	model = "oberon";
+	compatible = "qcom,kalama-mtp", "qcom,kalama", "qcom,mtp", "qcom,oberon";
+	qcom,msm-id = <519 0x10000>, <536 0x10000>, <519 0x20000>, <536 0x20000>;
+	qcom,board-id = <0x47 0x9000>;
+};
+
+&tlmm {
+	uwb_irq: uwb_irq {
+		mux {
+			pins = "gpio137";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio137";
+			bias-pull-down;
+		};
+	};
+	lp5562_enable: lp5562_enable {
+		mux {
+			pins = "gpio74";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio74";
+			drive-strength = <2>;
+			bias-disable; /* NO PULL */
+			output-high;
+		};
+	};
+	lp5562_disable: lp5562_disable {
+		mux {
+			pins = "gpio74";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio74";
+			drive-strength = <2>;
+			output-low;
+		};
+	};
+};
+
+&pm8550b_eusb2_repeater {
+	qcom,param-override-seq =
+		/* <value reg_offset> */
+		/* Adjust HS trasmit amplitude */
+		<0xb 0x51
+		/* HS disconnect threshold */
+		 0x6 0x53
+		/* Squelch detection threshold */
+		 0x6 0x54
+		/* Tx pre-emphasis tuning */
+		 0x6 0x57>;
+};
+
+&qupv3_se4_spi {
+	status = "disabled";
+};
+
+&qupv3_se10_spi {
+	status = "ok";
+	/*pinctrl-0 = <&qupv3_se18_spi_active &qupv3_se18_spi_cs0_active &qupv3_se18_spi_cs1_active>;*/
+	/*pinctrl-1 = <&qupv3_se18_spi_sleep &qupv3_se18_spi_cs0_sleep &qupv3_se18_spi_cs1_sleep>;*/
+	pinctrl-0 = <&qupv3_se10_spi_mosi_active>, <&qupv3_se10_spi_miso_active>,
+		<&qupv3_se10_spi_clk_active>, <&qupv3_se10_spi_cs_active>;
+	pinctrl-1 = <&qupv3_se10_spi_sleep>;
+	sr100@0 {
+		compatible = "nxp,sr100";
+		reg = <0>;
+		nxp,sr100-irq = <&tlmm 137 0x00>;
+		nxp,sr100-ce = <&tlmm 144 0x00>;
+		nxp,sr100-ri = <&tlmm 69 0x00>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <137 0>;
+		spi-max-frequency = <20000000>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&uwb_irq>;
+	};
+};
+
+&qupv3_hub_i2c2 {
+	redriver@30 {
+		status = "disabled";
+	};
+
+	led-controller@30 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "ok";
+		compatible = "ti,lp5562";
+		reg = <0x30>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&lp5562_enable>;
+		clock-mode = /bits/8 <2>;
+		enable = <&tlmm 74 GPIO_ACTIVE_HIGH>;
+
+		/* RGB led */
+		chan@0 {
+			chan-name = "red_moto";
+			led-cur = /bits/ 8 <0x20>;
+			max-cur = /bits/ 8 <0x60>;
+			reg = <0>;
+			color = <LED_COLOR_ID_RED>;
+		};
+
+		chan@1 {
+			chan-name = "green_moto";
+			led-cur = /bits/ 8 <0x20>;
+			max-cur = /bits/ 8 <0x60>;
+			reg = <1>;
+			color = <LED_COLOR_ID_GREEN>;
+		};
+
+		chan@2 {
+			chan-name = "blue_moto";
+			led-cur = /bits/ 8 <0x20>;
+			max-cur = /bits/ 8 <0x60>;
+			reg = <2>;
+			color = <LED_COLOR_ID_BLUE>;
+		};
+
+		chan@3 {
+			chan-name = "white_moto";
+			led-cur = /bits/ 8 <0x20>;
+			max-cur = /bits/ 8 <0x60>;
+			reg = <3>;
+			color = <LED_COLOR_ID_WHITE>;
+		};
+
+		pattern@1 {
+			/* Pulsing white pattern
+			 *   LED:
+			 *     027F: Ramp up 50%
+			 *     027F: Ramp up 50%
+			 *     4600: Wait 100ms
+			 *     02FF: Ramp down 50%
+			 *     02FF: Ramp down 50%
+			 *     4600: Wait 100ms
+			 *     0000: Goto start
+			 */
+			pat-name = "Pulsing White";
+
+			pat-r = [02 7f 02 7f 46 00 02 ff 02 ff 46 00 00 00];
+			pat-g = [02 7f 02 7f 46 00 02 ff 02 ff 46 00 00 00];
+			pat-b = [02 7f 02 7f 46 00 02 ff 02 ff 46 00 00 00];
+		};
+
+		pattern@2 {
+			/*
+			 * HSV rainbow
+			 *     40FF: Set PWM 255
+			 *     41FF: Ramp down 50%
+			 *     41FF: Ramp down 50%
+			 *     41FF: Wait 1/2 ramp time
+			 *     41FF: Wait 1/2 ramp time
+			 *     417F: Ramp up 50%
+			 *     417F: Ramp up 50%
+			 *     0000: Goto start
+			 *   Green:
+			 *     4000: Set PWM 0
+			 *     417F: Ramp up 50%
+			 *     417F: Ramp up 50%
+			 *     41FF: Ramp down 50%
+			 *     41FF: Ramp down 50%
+			 *     41FF: Wait 1/2 ramp time
+			 *     41FF: Wait 1/2 ramp time
+			 *     0000: Goto start
+			 *   Blue:
+			 *     4000: Set PWM 0
+			 *     41FF: Wait 1/2 ramp time
+			 *     41FF: Wait 1/2 ramp time
+			 *     417F: Ramp up 50%
+			 *     417F: Ramp up 50%
+			 *     41FF: Ramp down 50%
+			 *     41FF: Ramp down 50%
+			 *     0000: Goto start
+			 */
+			pat-name = "HSV Rainbow";
+			pat-r = [40 ff 41 FF 41 FF 41 FF 41 FF 41 7F 41 7F 00 00];
+			pat-g = [40 00 41 7F 41 7F 41 FF 41 FF 41 FF 41 FF 00 00];
+			pat-b = [40 00 41 FF 41 FF 41 7F 41 7F 41 FF 41 FF 00 00];
+		};
+
+		pattern@3 {
+			/* Pulsing blue pattern
+			 *   Blue:
+			 *     027F: Ramp up 50%
+			 *     027F: Ramp up 50%
+			 *     4600: Wait 100ms
+			 *     02FF: Ramp down 50%
+			 *     02FF: Ramp down 50%
+			 *     4600: Wait 100ms
+			 *     0000: Goto start
+			 */
+			pat-name = "Pulsing Blue";
+			pat-b = [02 7f 02 7f 46 00 02 ff 02 ff 46 00 00 00];
+		};
+
+	};
+};
+
+&pm8550_rgb {
+	red {
+		status = "ok";
+		label = "charging_low";
+		linux,default-trigger = "sign-of-life";
+	};
+
+	green {
+		status = "ok";
+		label = "charging_full";
+		linux,default-trigger = "sign-of-life";
+	};
+
+	blue {
+		status = "ok";
+		label = "charging";
+		linux,default-trigger = "sign-of-life";
+	};
+};
