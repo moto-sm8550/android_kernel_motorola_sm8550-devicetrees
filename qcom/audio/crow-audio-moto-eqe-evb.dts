@@ -1,0 +1,43 @@
+/*
+   This file is derivated from crow-audio-mtp.dts
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "crow-audio-moto-eqe-common.dtsi"
+ / {
+	model = "eqe";
+	compatible = "qcom,crow-idp", "qcom,crow", "qcom,idp", "mot,eqe";
+	qcom,msm-id = <608 0x10000>;
+	qcom,board-id = <0x41 0x9000>;
+};
+
+&qupv3_se1_i2c {
+        status = "ok";
+        aw882xxacf_rcv: aw882xx_smartpa@34 { /* SPKL */
+                 compatible = "awinic,aw882xx_smartpa";
+                 reg = <0x34>;
+                 irq-gpio = <&tlmm 149 0x2008>;
+                 sound-channel = <0>; /*0:pri_l 1:pri_r 2:sec_l 3:sec_r*/
+                 aw-re-min = <4000>;
+                 aw-re-max= <30000>;
+                 rename-flag = <1>;
+                 aw-cali-mode = "none";
+                 monitor-mode = "hal_monitor";
+                 status = "okay";
+        };
+        aw882xxacf_spk: aw882xx_smartpa@35 { /* SPKR */
+                 compatible = "awinic,aw882xx_smartpa";
+                 reg = <0x35>;
+                 irq-gpio = <&tlmm 150 0x2008>;
+                 sound-channel = <1>; /*0:pri_l 1:pri_r 2:sec_l 3:sec_r*/
+                 aw-re-min = <4000>;
+                 aw-re-max= <30000>;
+                 rename-flag = <1>;
+                 aw-cali-mode = "none";
+                 monitor-mode = "hal_monitor";
+                 status = "okay";
+        };
+};
+

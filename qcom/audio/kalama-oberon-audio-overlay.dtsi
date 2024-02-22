@@ -1,0 +1,92 @@
+&fsa4480 {
+    status = "disabled";
+};
+
+&kalama_snd {
+	qcom,model = "kalama-mtp-wsa883x-snd-card";
+	qcom,audio-routing =
+		"TX DMIC0", "Digital Mic0",
+		"TX DMIC1", "Digital Mic1",
+		"TX DMIC2", "Digital Mic2",
+		"TX DMIC3", "Digital Mic3",
+		"TX DMIC4", "Digital Mic4",
+		"TX DMIC5", "Digital Mic5",
+		"TX DMIC6", "Digital Mic6",
+		"TX DMIC7", "Digital Mic7",
+		"WSA SRC0_INP", "SRC0",
+		"WSA_TX DEC0_INP", "TX DEC0 MUX",
+		"WSA_TX DEC1_INP", "TX DEC1 MUX",
+		"RX_TX DEC0_INP", "TX DEC0 MUX",
+		"RX_TX DEC1_INP", "TX DEC1 MUX",
+		"RX_TX DEC2_INP", "TX DEC2 MUX",
+		"RX_TX DEC3_INP", "TX DEC3 MUX",
+		"SpkrLeft IN", "WSA_SPK1 OUT",
+		"VA SWR_INPUT", "VA_SWR_CLK",
+		"VA_AIF1 CAP", "VA_SWR_CLK",
+		"VA_AIF2 CAP", "VA_SWR_CLK",
+		"VA_AIF3 CAP", "VA_SWR_CLK",
+		"VA DMIC0", "Digital Mic0",
+		"VA DMIC1", "Digital Mic1",
+		"VA DMIC2", "Digital Mic2",
+		"VA DMIC3", "Digital Mic3",
+		"VA DMIC4", "Digital Mic4",
+		"VA DMIC5", "Digital Mic5",
+		"VA DMIC6", "Digital Mic6",
+		"VA DMIC7", "Digital Mic7";
+	asoc-codec  = <&stub_codec>, <&lpass_cdc>,
+			<&wsa883x_0221>;
+	asoc-codec-names = "msm-stub-codec.1", "lpass-cdc",
+			"wsa-codec1";
+
+	qcom,msm-mbhc-usbc-audio-supported = <0>;
+	qcom,msm-mbhc-hphl-swh = <0>;
+	qcom,msm-mbhc-gnd-swh = <0>;
+	qcom,wcd-disabled = <1>;
+	qcom,wsa-max-devs = <1>;
+	qcom,swr-dmic-max-devs = <0>;
+
+	cdc-vdd-dmic1-supply = <&L15B>;
+	qcom,cdc-vdd-dmic1-voltage = <1800000 1800000>;
+	qcom,cdc-vdd-dmic1-current = <30000>;
+
+	qcom,cdc-static-supplies = "cdc-vdd-dmic1";
+};
+
+&wsa_macro {
+	qcom,wsa-bat-cfgs= <0>, <0>;
+};
+
+&wsa884x_0220 {
+    status = "disabled";
+};
+
+&wsa884x_0221 {
+    status = "disabled";
+};
+
+&swr0 {
+	wsa883x_0221: wsa883x@02170221 {
+		compatible = "qcom,wsa883x";
+		reg = <0x2 0x2170221>;
+		qcom,spkr-sd-n-node = <&wsa_spkr_en02>;
+		qcom,lpass-cdc-handle = <&lpass_cdc>;
+		cdc-vdd-1p8-supply = <&L15B>;
+		qcom,cdc-vdd-1p8-voltage = <1800000 1800000>;
+		qcom,cdc-vdd-1p8-current = <20000>;
+		qcom,cdc-static-supplies = "cdc-vdd-1p8";
+		sound-name-prefix = "SpkrLeft";
+	};
+
+};
+
+&wsa2_macro {
+	status = "disabled";
+};
+
+&wsa884x_2_0220 {
+    status = "disabled";
+};
+
+&wsa884x_2_0221 {
+    status = "disabled";
+};

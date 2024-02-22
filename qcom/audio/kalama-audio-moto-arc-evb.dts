@@ -1,0 +1,14 @@
+/*
+   This file is derivated from kalama-audio-mtp.dts
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "kalama-audio-moto-arc-common.dtsi"
+ / {
+	model = "arc";
+	compatible = "qcom,kalama-mtp", "qcom,kalama", "qcom,mtp", "mot,arc";
+	qcom,msm-id = <519 0x10000>, <536 0x10000>, <519 0x20000>, <536 0x20000>;
+	qcom,board-id = <0x44 0x9000>;
+};

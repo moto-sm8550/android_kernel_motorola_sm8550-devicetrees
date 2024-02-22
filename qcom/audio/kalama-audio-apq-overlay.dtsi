@@ -5,7 +5,7 @@
 #include "kalama-lpi.dtsi"
 
 &lpass_cdc {
-	qcom,num-macros = <4>;
+	qcom,num-macros = <3>;
 	qcom,lpass-cdc-version = <7>;
 	#address-cells = <1>;
 	#size-cells = <1>;
@@ -157,6 +157,7 @@
 			qcom,swr-clock-stop-mode0 = <1>;
 			swr_haptics: swr_haptics@f0170220 {
 				compatible = "qcom,pm8550b-swr-haptics";
+				status = "disabled";
 				reg = <0x02 0xf0170220>;
 				swr-slave-supply = <&hap_swr_slave_reg>;
 				qcom,rx_swr_ch_map = <0 0x01 0x01 0 PCM_OUT1>;
@@ -171,6 +172,7 @@
 
 	wsa_macro: wsa-macro@6B00000 {
 		compatible = "qcom,lpass-cdc-wsa-macro";
+		status = "disabled";
 		reg = <0x6B00000 0x0>;
 		qcom,wsa-swr-gpios = <&wsa_swr_gpios>;
 		qcom,wsa-bat-cfgs= <1>, <1>;
@@ -203,7 +205,7 @@
 				<8 SPKR_HAPT 0x3>, <9 OCPM 0x3>,
 				<10 SPKR_L_VI 0x3>, <11 SPKR_R_VI 0x3>,
 				<12 SPKR_IPCM 0x3>, <13 CPS 0x3>;
-			qcom,swr-num-dev = <2>;
+			qcom,swr-num-dev = <0>;
 			qcom,dynamic-port-map-supported = <0>;
 			wsa884x_0220: wsa884x@02170220 {
 				compatible = "qcom,wsa884x";
@@ -222,6 +224,7 @@
 				qcom,cdc-vdd-1p8-lpm-supported = <1>;
 				qcom,cdc-static-supplies = "cdc-vdd-1p8";
 				sound-name-prefix = "SpkrLeft";
+				status = "disabled";
 			};
 
 			wsa884x_0221: wsa884x@02170221 {
@@ -241,6 +244,7 @@
 				qcom,cdc-vdd-1p8-lpm-supported = <1>;
 				qcom,cdc-static-supplies = "cdc-vdd-1p8";
 				sound-name-prefix = "SpkrRight";
+				status = "disabled";
 			};
 		};
 	};
@@ -280,7 +284,7 @@
 				<8 SPKR_HAPT 0x3>, <9 OCPM 0x3>,
 				<10 SPKR_L_VI 0x3>, <11 SPKR_R_VI 0x3>,
 				<12 SPKR_IPCM 0x3>, <13 CPS 0x3>;
-			qcom,swr-num-dev = <2>;
+			qcom,swr-num-dev = <0>;
 			qcom,dynamic-port-map-supported = <0>;
 			wsa884x_2_0220: wsa884x@02170220 {
 				compatible = "qcom,wsa884x_2";
@@ -299,6 +303,7 @@
 				qcom,cdc-vdd-1p8-lpm-supported = <1>;
 				qcom,cdc-static-supplies = "cdc-vdd-1p8";
 				sound-name-prefix = "Spkr2Left";
+				status = "disabled";
 			};
 
 			wsa884x_2_0221: wsa884x@02170221 {
@@ -318,6 +323,7 @@
 				qcom,cdc-vdd-1p8-lpm-supported = <1>;
 				qcom,cdc-static-supplies = "cdc-vdd-1p8";
 				sound-name-prefix = "Spkr2Right";
+				status = "disabled";
 			};
 		};
 	};
@@ -375,7 +381,7 @@
 		qcom,cdc-vdd-mic-bias-current = <30000>;
 
 		qcom,cdc-micbias1-mv = <1800>;
-		qcom,cdc-micbias2-mv = <2800>;
+		qcom,cdc-micbias2-mv = <1800>;
 		qcom,cdc-micbias3-mv = <1800>;
 		qcom,cdc-micbias4-mv = <1800>;
 
@@ -389,7 +395,7 @@
 
 &spf_core_platform  {
 	kalama_snd: sound {
-		qcom,model = "kalama-mtp-snd-card";
+		qcom,model = "kalama-mtp-apq-snd-card";
 		qcom,msm-mi2s-master = <1>, <1>, <1>, <1>, <1>, <1>;
 		qcom,mi2s-tdm-is-hw-vote-needed = <1>, <0>, <1>, <0>, <0>, <0>;
 		qcom,wcn-bt = <1>;
@@ -429,16 +435,10 @@
 			"IN1_HPHL", "HPHL_OUT",
 			"IN2_HPHR", "HPHR_OUT",
 			"IN3_AUX", "AUX_OUT",
-			"HAP_IN", "PCM_OUT",
-			"WSA SRC0_INP", "SRC0",
-			"WSA_TX DEC0_INP", "TX DEC0 MUX",
-			"WSA_TX DEC1_INP", "TX DEC1 MUX",
 			"RX_TX DEC0_INP", "TX DEC0 MUX",
 			"RX_TX DEC1_INP", "TX DEC1 MUX",
 			"RX_TX DEC2_INP", "TX DEC2 MUX",
 			"RX_TX DEC3_INP", "TX DEC3 MUX",
-			"SpkrLeft IN", "WSA_SPK1 OUT",
-			"SpkrRight IN", "WSA_SPK2 OUT",
 			"TX SWR_INPUT", "WCD_TX_OUTPUT",
 			"VA SWR_INPUT", "VA_SWR_CLK",
 			"VA SWR_INPUT", "WCD_TX_OUTPUT",
@@ -465,13 +465,17 @@
 			      <&wsa884x_0220>, <&wsa884x_0221>;
 		asoc-codec-names = "msm-stub-codec.1", "lpass-cdc",
 				   "wcd938x_codec", "swr-haptics",
-			   	"wsa-codec1", "wsa-codec2";
-		qcom,wsa-max-devs = <2>;
+				   "wsa-codec1", "wsa-codec2";
+		qcom,wsa-max-devs = <0>;
 		qcom,msm_audio_ssr_devs = <&audio_gpr>, <&lpi_tlmm>,
 				  <&lpass_cdc>;
 		qcom,upd_backends_used = "wcd";
 		qcom,upd_lpass_reg_addr = <0x00000418 0x33B0300>;
 		qcom,upd_ear_pa_reg_addr = <0x300A>;
+	};
+
+	msm_pcm_pcie: qcom,msm-pcm-pcie {
+		compatible = "qcom,msm-pcm-pcie";
 	};
 
 	fm_i2s1_gpios: fm_i2s1_pinctrl {
