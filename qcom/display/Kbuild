@@ -1,4 +1,6 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+#remove useless qcom device tree in moto build
+ifneq ($(CONFIG_MMI_DEVICE_DTBS),y)
 dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde.dtbo \
 		display/kalama-sde-display-rumi-overlay.dtbo \
 		display/kalama-sde-display-cdp-overlay.dtbo \
@@ -12,6 +14,28 @@ dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde.dtbo \
 		display/kalama-sde-display-cdp-nfc-overlay.dtbo \
 		display/kalama-sde-display-atp-overlay.dtbo
 else
+ifeq ($(CONFIG_RTWO_DTB),y)
+dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde-rtwo.dtbo \
+		  display/kalama-sde-display-rtwo-evb1-overlay.dtbo
+endif  #($(CONFIG_RTWO_DTB),y)
+
+ifeq ($(CONFIG_CTWO_DTB),y)
+dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde-ctwo.dtbo \
+		  display/kalama-sde-display-ctwo-evb-overlay.dtbo
+endif  #($(CONFIG_CTWO_DTB),y)
+
+ifeq ($(CONFIG_ARC_DTB),y)
+dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde-arc.dtbo \
+		  display/kalama-sde-display-arc-evb-overlay.dtbo
+endif  #($(CONFIG_ARC_DTB),y)
+
+ifeq ($(CONFIG_OBERON_DTB),y)
+dtbo-$(CONFIG_ARCH_KALAMA) += display/kalama-sde-display-oberon-evb-overlay.dtbo
+endif
+
+endif  #($(CONFIG_MMI_DEVICE_DTBS),y)
+
+else
 dtbo-$(CONFIG_ARCH_KALAMA) += display/trustedvm-kalama-sde-display-mtp-overlay.dtbo \
                   display/trustedvm-kalama-sde-display-mtp-nfc-overlay.dtbo \
                   display/trustedvm-kalama-sde-display-cdp-nfc-overlay.dtbo \
@@ -20,6 +44,34 @@ dtbo-$(CONFIG_ARCH_KALAMA) += display/trustedvm-kalama-sde-display-mtp-overlay.d
 		  display/trustedvm-kalama-sde-display-rumi-overlay.dtbo \
 		  display/trustedvm-kalama-sde-display-qrd-overlay.dtbo \
 		  display/trustedvm-kalama-sde-display-atp-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+#remove useless qcom device tree in moto build
+ifneq ($(CONFIG_MMI_DEVICE_DTBS),y)
+dtbo-$(CONFIG_ARCH_CROW) += display/crow-sde.dtbo \
+		display/crow-sde-display-idp-overlay.dtbo \
+		display/crow-sde-display-idp-wcd-overlay.dtbo \
+		display/crow-sde-display-atp-overlay.dtbo \
+		display/crow-sde-display-rumi-overlay.dtbo \
+		display/crow-sde-display-qrd-overlay.dtbo \
+		display/crow-sde-display-idps-overlay.dtbo \
+		display/crow-sde-display-idps-wcd-overlay.dtbo
+else
+
+ifeq ($(CONFIG_EQE_DTB),y)
+dtbo-$(CONFIG_ARCH_CROW) += display/crow-sde-eqe.dtbo \
+		display/crow-sde-display-eqe-evb-overlay.dtbo \
+		display/crow-sde-display-eqe-evt-overlay.dtbo
+endif  #($(CONFIG_EQE_DTB),y)
+
+endif  #($(CONFIG_MMI_DEVICE_DTBS),y)
+else
+dtbo-$(CONFIG_ARCH_CROW) += display/trustedvm-crow-sde-display-idp-overlay.dtbo \
+		  display/trustedvm-crow-sde-display-idp-wcd-overlay.dtbo \
+		  display/trustedvm-crow-sde-display-atp-overlay.dtbo \
+		  display/trustedvm-crow-sde-display-rumi-overlay.dtbo \
+		  display/trustedvm-crow-sde-display-qrd-overlay.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SA8155), y)
